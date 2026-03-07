@@ -13,6 +13,8 @@
     <!-- AOS Animation Library -->
     <link rel="shortcut icon" href="images/pappu.jpg" type="image/x-icon">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <style>
         * {
             margin: 0;
@@ -63,6 +65,7 @@
             backdrop-filter: blur(10px);
             z-index: 1000;
             border-bottom: 1px solid rgba(108, 92, 231, 0.2);
+            transition: all 0.3s ease;
         }
 
         .logo {
@@ -72,6 +75,19 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             letter-spacing: -1px;
+            animation: glow 3s ease-in-out infinite;
+        }
+
+        @keyframes glow {
+
+            0%,
+            100% {
+                filter: brightness(1);
+            }
+
+            50% {
+                filter: brightness(1.2);
+            }
         }
 
         .mobile-menu-btn {
@@ -90,6 +106,7 @@
 
         .mobile-menu-btn:hover {
             background: rgba(108, 92, 231, 0.3);
+            transform: rotate(90deg);
         }
 
         .nav-links {
@@ -121,6 +138,7 @@
 
         .nav-links a:hover {
             color: #a463f5;
+            transform: translateY(-2px);
         }
 
         .nav-links a:hover::after {
@@ -132,6 +150,7 @@
             padding: 0.7rem 1.5rem !important;
             border-radius: 30px;
             color: white !important;
+            animation: pulse 2s infinite;
         }
 
         .nav-resume-btn::after {
@@ -170,6 +189,44 @@
                 text-align: center;
                 padding: 1rem;
                 border-radius: 12px;
+                animation: slideIn 0.5s ease forwards;
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+
+            .nav-links a:nth-child(1) {
+                animation-delay: 0.1s;
+            }
+
+            .nav-links a:nth-child(2) {
+                animation-delay: 0.2s;
+            }
+
+            .nav-links a:nth-child(3) {
+                animation-delay: 0.3s;
+            }
+
+            .nav-links a:nth-child(4) {
+                animation-delay: 0.4s;
+            }
+
+            .nav-links a:nth-child(5) {
+                animation-delay: 0.5s;
+            }
+
+            .nav-links a:nth-child(6) {
+                animation-delay: 0.6s;
+            }
+
+            .nav-links a:nth-child(7) {
+                animation-delay: 0.7s;
+            }
+
+            @keyframes slideIn {
+                to {
+                    opacity: 1;
+                    transform: translateX(0);
+                }
             }
 
             .nav-links a:hover {
@@ -208,6 +265,19 @@
             background: radial-gradient(circle at 20% 50%, rgba(108, 92, 231, 0.15) 0%, transparent 50%),
                 radial-gradient(circle at 80% 80%, rgba(164, 99, 245, 0.15) 0%, transparent 50%);
             pointer-events: none;
+            animation: pulseBackground 8s ease-in-out infinite;
+        }
+
+        @keyframes pulseBackground {
+
+            0%,
+            100% {
+                opacity: 0.5;
+            }
+
+            50% {
+                opacity: 1;
+            }
         }
 
         .hero-content {
@@ -273,6 +343,7 @@
             font-size: clamp(1.5rem, 5vw, 2.5rem);
             color: #a0a0a0;
             font-weight: 400;
+            animation: fadeInUp 1s ease;
         }
 
         .hero p {
@@ -280,6 +351,7 @@
             color: #b0b0b0;
             max-width: 600px;
             margin: 1.5rem auto;
+            animation: fadeInUp 1.2s ease;
         }
 
         /* Stats Grid - Mobile Responsive */
@@ -299,12 +371,31 @@
             border-radius: 20px;
             padding: 1.2rem 1rem;
             text-align: center;
-            transition: transform 0.3s ease;
+            transition: all 0.3s ease;
+            animation: fadeInUp 1s ease;
+            animation-fill-mode: both;
+        }
+
+        .stat-item:nth-child(1) {
+            animation-delay: 0.2s;
+        }
+
+        .stat-item:nth-child(2) {
+            animation-delay: 0.4s;
+        }
+
+        .stat-item:nth-child(3) {
+            animation-delay: 0.6s;
+        }
+
+        .stat-item:nth-child(4) {
+            animation-delay: 0.8s;
         }
 
         .stat-item:hover {
-            transform: translateY(-5px);
+            transform: translateY(-10px) scale(1.05);
             border-color: #6c5ce7;
+            box-shadow: 0 10px 30px rgba(108, 92, 231, 0.3);
         }
 
         .stat-number {
@@ -329,6 +420,7 @@
             gap: 1rem;
             justify-content: center;
             flex-wrap: wrap;
+            animation: fadeInUp 1.4s ease;
         }
 
         .btn {
@@ -342,6 +434,26 @@
             font-size: 1rem;
             min-width: 160px;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .btn:hover::before {
+            width: 300px;
+            height: 300px;
         }
 
         .btn-primary {
@@ -351,7 +463,7 @@
         }
 
         .btn-primary:hover {
-            transform: translateY(-2px);
+            transform: translateY(-2px) scale(1.05);
             box-shadow: 0 15px 30px rgba(108, 92, 231, 0.5);
         }
 
@@ -364,12 +476,13 @@
         .btn-outline:hover {
             border-color: #a463f5;
             background: rgba(108, 92, 231, 0.1);
-            transform: translateY(-2px);
+            transform: translateY(-2px) scale(1.05);
         }
 
         /* Section Styles */
         .section {
             padding: 80px 0;
+            position: relative;
         }
 
         .section-title {
@@ -377,6 +490,7 @@
             margin-bottom: 3rem;
             text-align: center;
             position: relative;
+            animation: fadeInUp 0.8s ease;
         }
 
         .section-title::after {
@@ -389,6 +503,17 @@
             height: 4px;
             background: linear-gradient(90deg, #6c5ce7, #a463f5);
             border-radius: 2px;
+            animation: expandWidth 1s ease;
+        }
+
+        @keyframes expandWidth {
+            from {
+                width: 0;
+            }
+
+            to {
+                width: 80px;
+            }
         }
 
         /* About Section */
@@ -404,13 +529,27 @@
             border-radius: 30px;
             padding: 2rem;
             backdrop-filter: blur(10px);
-            transition: all 0.3s ease;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            animation: fadeInUp 0.8s ease;
+            animation-fill-mode: both;
+        }
+
+        .about-card:nth-child(1) {
+            animation-delay: 0.2s;
+        }
+
+        .about-card:nth-child(2) {
+            animation-delay: 0.4s;
+        }
+
+        .about-card:nth-child(3) {
+            animation-delay: 0.6s;
         }
 
         .about-card:hover {
-            transform: translateY(-10px);
+            transform: translateY(-15px) scale(1.02);
             border-color: #6c5ce7;
-            box-shadow: 0 20px 40px rgba(108, 92, 231, 0.2);
+            box-shadow: 0 20px 40px rgba(108, 92, 231, 0.3);
         }
 
         .about-icon {
@@ -422,6 +561,17 @@
             align-items: center;
             justify-content: center;
             margin-bottom: 1.5rem;
+            animation: rotate 10s linear infinite;
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
         }
 
         .about-icon i {
@@ -444,9 +594,27 @@
             border-radius: 20px;
             padding: 1.5rem 1rem;
             text-align: center;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
             overflow: hidden;
+            animation: fadeInScale 0.6s ease;
+            animation-fill-mode: both;
+        }
+
+        .skill-card:nth-child(n) {
+            animation-delay: calc(0.1s * var(--i, 1));
+        }
+
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
         }
 
         .skill-card::before {
@@ -465,9 +633,9 @@
         }
 
         .skill-card:hover {
-            transform: translateY(-5px) scale(1.02);
+            transform: translateY(-8px) scale(1.05);
             border-color: #6c5ce7;
-            box-shadow: 0 10px 30px rgba(108, 92, 231, 0.3);
+            box-shadow: 0 15px 30px rgba(108, 92, 231, 0.4);
         }
 
         .skill-icon {
@@ -476,6 +644,19 @@
             background: linear-gradient(135deg, #6c5ce7, #a463f5);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            animation: bounce 2s ease infinite;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-5px);
+            }
         }
 
         /* Experience Timeline - Mobile Optimized */
@@ -492,13 +673,39 @@
             background: rgba(255, 255, 255, 0.02);
             border: 1px solid rgba(108, 92, 231, 0.2);
             border-radius: 30px;
-            transition: all 0.3s ease;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            animation: slideInLeft 0.8s ease;
+            animation-fill-mode: both;
+        }
+
+        .timeline-item:nth-child(1) {
+            animation-delay: 0.2s;
+        }
+
+        .timeline-item:nth-child(2) {
+            animation-delay: 0.4s;
+        }
+
+        .timeline-item:nth-child(3) {
+            animation-delay: 0.6s;
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
         }
 
         .timeline-item:hover {
-            transform: translateX(10px);
+            transform: translateX(15px) scale(1.02);
             border-color: #6c5ce7;
-            box-shadow: -10px 10px 30px rgba(108, 92, 231, 0.2);
+            box-shadow: -15px 15px 40px rgba(108, 92, 231, 0.3);
         }
 
         .timeline-date {
@@ -510,6 +717,7 @@
             font-size: 0.9rem;
             font-weight: 600;
             margin-bottom: 1rem;
+            animation: glow 2s ease-in-out infinite;
         }
 
         /* Projects Grid */
@@ -524,9 +732,31 @@
             border: 1px solid rgba(108, 92, 231, 0.2);
             border-radius: 30px;
             padding: 2rem;
-            transition: all 0.3s ease;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
             overflow: hidden;
+            animation: fadeInUp 0.8s ease;
+            animation-fill-mode: both;
+        }
+
+        .project-card:nth-child(1) {
+            animation-delay: 0.2s;
+        }
+
+        .project-card:nth-child(2) {
+            animation-delay: 0.4s;
+        }
+
+        .project-card:nth-child(3) {
+            animation-delay: 0.6s;
+        }
+
+        .project-card:nth-child(4) {
+            animation-delay: 0.8s;
+        }
+
+        .project-card:nth-child(5) {
+            animation-delay: 1s;
         }
 
         .project-card::after {
@@ -539,12 +769,19 @@
             background: linear-gradient(135deg, #6c5ce7, #a463f5);
             opacity: 0.1;
             border-radius: 0 0 0 100px;
+            transition: all 0.5s ease;
         }
 
         .project-card:hover {
-            transform: translateY(-10px) scale(1.02);
+            transform: translateY(-15px) scale(1.03);
             border-color: #6c5ce7;
-            box-shadow: 0 20px 40px rgba(108, 92, 231, 0.3);
+            box-shadow: 0 25px 50px rgba(108, 92, 231, 0.4);
+        }
+
+        .project-card:hover::after {
+            width: 150px;
+            height: 150px;
+            opacity: 0.2;
         }
 
         .project-tech {
@@ -561,7 +798,16 @@
             border-radius: 50px;
             font-size: 0.8rem;
             color: #a463f5;
+            transition: all 0.3s ease;
         }
+
+        .tech-tag:hover {
+            background: rgba(108, 92, 231, 0.3);
+            transform: scale(1.1);
+        }
+
+
+
 
         /* Contact Section */
         .contact-grid {
@@ -576,6 +822,14 @@
             border-radius: 30px;
             padding: 2rem;
             backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-10px);
+            border-color: #6c5ce7;
+            box-shadow: 0 20px 40px rgba(108, 92, 231, 0.2);
         }
 
         .contact-item {
@@ -584,6 +838,12 @@
             gap: 1rem;
             padding: 1rem 0;
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            transform: translateX(10px);
+            border-bottom-color: #6c5ce7;
         }
 
         .contact-icon {
@@ -594,11 +854,22 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover .contact-icon {
+            transform: rotate(360deg);
+            background: linear-gradient(135deg, #6c5ce7, #a463f5);
+        }
+
+        .contact-item:hover .contact-icon i {
+            color: white;
         }
 
         .contact-icon i {
             font-size: 1.2rem;
             color: #a463f5;
+            transition: all 0.3s ease;
         }
 
         /* Form Styles */
@@ -623,10 +894,22 @@
             border-color: #a463f5;
             background: rgba(108, 92, 231, 0.1);
             box-shadow: 0 0 20px rgba(108, 92, 231, 0.3);
+            transform: scale(1.02);
         }
 
         .form-input::placeholder {
             color: rgba(255, 255, 255, 0.3);
+        }
+
+        /* Social Links */
+        .social-link {
+            transition: all 0.3s ease !important;
+            animation: pulse 2s infinite;
+        }
+
+        .social-link:hover {
+            transform: translateY(-5px) rotate(360deg) !important;
+            background: linear-gradient(135deg, #6c5ce7, #a463f5) !important;
         }
 
         /* Footer */
@@ -635,6 +918,7 @@
             text-align: center;
             border-top: 1px solid rgba(108, 92, 231, 0.2);
             color: #b0b0b0;
+            animation: fadeIn 1s ease;
         }
 
         /* Floating Shapes Animation */
@@ -727,6 +1011,15 @@
             .project-card {
                 padding: 1.5rem;
             }
+
+            .achievement-item {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .achievement-year::after {
+                display: none;
+            }
         }
 
         /* Dark Mode Optimization */
@@ -735,18 +1028,69 @@
                 background: linear-gradient(135deg, #0a0a14 0%, #14142a 100%);
             }
         }
+
+        /* Mouse Follower Effect */
+        .mouse-follower {
+            width: 20px;
+            height: 20px;
+            background: rgba(108, 92, 231, 0.3);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            transition: transform 0.1s;
+            transform: translate(-50%, -50%);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(108, 92, 231, 0.5);
+        }
+
+        /* Rotating Text Container */
+#rotating-text {
+    position: relative;
+    white-space: nowrap;
+    overflow: hidden;
+    min-width: 250px;
+    display: inline-block;
+    animation: glow 2s ease-in-out infinite;
+}
+
+/* Responsive for mobile */
+@media (max-width: 480px) {
+    #rotating-text {
+        min-width: 200px;
+        font-size: 1.8rem !important;
+        white-space: normal;
+    }
+    
+    .hero h1 div {
+        justify-content: center;
+    }
+}
+
+/* Glow effect */
+@keyframes glow {
+    0%, 100% {
+        text-shadow: 0 0 10px rgba(108, 92, 231, 0.3);
+    }
+    50% {
+        text-shadow: 0 0 20px rgba(164, 99, 245, 0.5);
+    }
+}
     </style>
 </head>
 
 <body>
+    <!-- Mouse Follower -->
+    <div class="mouse-follower" id="mouseFollower"></div>
+
     <!-- Loading Animation -->
     <div class="loading" id="loading">
         <div class="loader"></div>
     </div>
 
     <!-- Floating Shapes -->
-    <div class="floating-shape shape-1"></div>
-    <div class="floating-shape shape-2"></div>
+    <div class="floating-shape shape-1" style="display: none;"></div>
+    <div class="floating-shape shape-2" style="display: none;"></div>
 
     <!-- Navigation -->
     <nav>
@@ -767,81 +1111,516 @@
     </nav>
 
     <main>
-        <!-- Hero Section -->
+
         <section id="home" class="hero">
             <div class="container">
-                <div class="hero-content" data-aos="fade-up" data-aos-duration="1000">
-                    <span class="hero-badge">⚡ Available for opportunities</span>
-                    <h1>
-                        <span class="gradient-text">Pappu Kushwaha</span>
-                        <span>Backend Developer</span>
-                    </h1>
-                    <p>Specialized in building scalable backend systems, high-performance APIs, and real-time
-                        applications with 3+ years of experience.</p>
+                <div class="hero-content" style="display: flex; align-items: center; gap: 4rem; flex-wrap: wrap;">
 
-                    <div class="hero-stats">
-                        <div class="stat-item" data-aos="zoom-in" data-aos-delay="100">
-                            <div class="stat-number">250+</div>
-                            <div class="stat-label">APIs</div>
+                    <!-- ========== LEFT SIDE - TEXT CONTENT ========== -->
+                    <div style="flex: 1; text-align: left; min-width: 300px;">
+                        <!-- <span class="hero-badge" style="margin-left: 0;">⚡ Available for opportunities</span> -->
+
+                        <h1 style="text-align: left; margin-top: 50px;">
+                            <span class="gradient-text">Pappu Kushwaha</span>
+                            <div style="
+                        display: flex;
+                        align-items: center;
+                        gap: 0.5rem;
+                        flex-wrap: wrap;
+                        margin-top: 0.5rem;
+                    ">
+                                <span style="
+                            font-size: clamp(1.5rem, 5vw, 1.8rem);
+                            color: #a0a0a0;
+                            font-weight: 400;
+                        ">I'm a</span>
+
+                                <!-- Animated Text -->
+                                <span id="rotating-text" style="
+                            font-size: clamp(1.5rem, 5vw, 2rem);
+                            font-weight: 700;
+                            background: linear-gradient(135deg, #6c5ce7, #a463f5);
+                            -webkit-background-clip: text;
+                            -webkit-text-fill-color: transparent;
+                            display: inline-block;
+                            min-width: 250px;
+                            text-align: left;
+                            border-right: 3px solid #6c5ce7;
+                            padding-right: 10px;
+                            animation: blinkCursor 1s infinite;
+                        "></span>
+                            </div>
+                        </h1>
+
+                        <p style="text-align: left; margin-left: 0;">Specialized in building scalable backend systems,
+                            high-performance APIs, and real-time applications with 3+ years of experience.</p>
+
+                        <!-- Stats with left alignment -->
+                        <div class="hero-stats" style="justify-content: flex-start; margin-left: 0;">
+                            <div class="stat-item">
+                                <div class="stat-number">250+</div>
+                                <div class="stat-label">APIs</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">3+</div>
+                                <div class="stat-label">Years</div>
+                            </div>
+
+                            <div class="stat-item">
+                                <div class="stat-number">400+</div>
+                                <div class="stat-label">Websites</div>
+                            </div>
                         </div>
-                        <div class="stat-item" data-aos="zoom-in" data-aos-delay="200">
-                            <div class="stat-number">3+</div>
-                            <div class="stat-label">Years</div>
-                        </div>
-                        <div class="stat-item" data-aos="zoom-in" data-aos-delay="300">
-                            <div class="stat-number">2x</div>
-                            <div class="stat-label">Awards</div>
-                        </div>
-                        <div class="stat-item" data-aos="zoom-in" data-aos-delay="400">
-                            <div class="stat-number">400+</div>
-                            <div class="stat-label">Websites</div>
+
+                        <!-- Buttons left aligned -->
+                        <div class="hero-buttons" style="justify-content: flex-start;">
+                            <a href="#contact" class="btn btn-primary">Hire Me Now</a>
+                            <a href="#projects" class="btn btn-outline">View Projects</a>
                         </div>
                     </div>
 
-                    <div class="hero-buttons">
-                        <a href="#contact" class="btn btn-primary" data-aos="fade-right">Hire Me Now</a>
-                        <a href="#projects" class="btn btn-outline" data-aos="fade-left">View Projects</a>
+                    <!-- ========== RIGHT SIDE - PHOTO WITH ANIMATIONS ========== -->
+                    <div style="flex: 1; text-align: center; min-width: 300px;">
+
+                        <!-- Main Photo Container with Animations -->
+                        <div style="position: relative; display: inline-block;">
+
+                            <!-- Animated Background Rings -->
+                            <div style="
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                        width: 320px;
+                        height: 320px;
+                        border: 2px dashed rgba(108, 92, 231, 0.3);
+                        border-radius: 50%;
+                        animation: rotate 20s linear infinite;
+                    "></div>
+
+                            <div style="
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                        width: 340px;
+                        height: 340px;
+                        border: 1px solid rgba(164, 99, 245, 0.2);
+                        border-radius: 50%;
+                        animation: rotate 15s linear infinite reverse;
+                    "></div>
+
+                            <!-- Gradient Border -->
+                            <div style="
+                        width: 300px;
+                        height: 300px;
+                        border-radius: 50%;
+                        background: linear-gradient(135deg, #6c5ce7, #a463f5, #ff6b6b);
+                        padding: 5px;
+                        animation: gradientRotate 6s linear infinite;
+                        box-shadow: 0 20px 40px rgba(108, 92, 231, 0.3);
+                        position: relative;
+                        z-index: 2;
+                    ">
+                                <!-- Your Photo -->
+                                <img src="images/pappuPic.jfif" alt="Pappu Kushwaha - Backend Developer" style="
+                            width: 100%;
+                            height: 100%;
+                            border-radius: 50%;
+                            object-fit: cover;
+                            border: 4px solid white;
+                            transition: all 0.5s ease;
+                            display: block;
+                        " onmouseover="this.style.transform='scale(1.05)'"
+                                    onmouseout="this.style.transform='scale(1)'">
+                            </div>
+
+                            <!-- Floating Tech Icons Around Photo -->
+                            <div style="
+                        position: absolute;
+                        top: -20px;
+                        right: -20px;
+                        background: linear-gradient(135deg, #6c5ce7, #a463f5);
+                        width: 50px;
+                        height: 50px;
+                        border-radius: 50%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        animation: float 3s ease-in-out infinite;
+                        box-shadow: 0 10px 20px rgba(108, 92, 231, 0.3);
+                        z-index: 3;
+                    ">
+                                <i class="fab fa-node-js" style="color: white; font-size: 1.5rem;"></i>
+                            </div>
+
+                            <div style="
+                        position: absolute;
+                        bottom: -10px;
+                        left: -20px;
+                        background: linear-gradient(135deg, #a463f5, #ff6b6b);
+                        width: 45px;
+                        height: 45px;
+                        border-radius: 50%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        animation: float 3.5s ease-in-out infinite reverse;
+                        box-shadow: 0 10px 20px rgba(164, 99, 245, 0.3);
+                        z-index: 3;
+                    ">
+                                <i class="fab fa-laravel" style="color: white; font-size: 1.3rem;"></i>
+                            </div>
+
+                            <div style="
+                        position: absolute;
+                        top: 30px;
+                        left: -25px;
+                        background: linear-gradient(135deg, #ff6b6b, #6c5ce7);
+                        width: 40px;
+                        height: 40px;
+                        border-radius: 50%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        animation: float 4s ease-in-out infinite;
+                        box-shadow: 0 10px 20px rgba(255, 107, 107, 0.3);
+                        z-index: 3;
+                    ">
+                                <i class="fas fa-database" style="color: white; font-size: 1.2rem;"></i>
+                            </div>
+                        </div>
+
+                        <!-- Status Badges Below Photo -->
+                        <div
+                            style="margin-top: 2rem; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                            <div style="
+                        background: rgba(108, 92, 231, 0.1);
+                        border: 1px solid rgba(108, 92, 231, 0.3);
+                        padding: 0.6rem 1.5rem;
+                        border-radius: 50px;
+                        display: inline-flex;
+                        align-items: center;
+                        gap: 0.5rem;
+                        backdrop-filter: blur(5px);
+                        animation: pulse 2s infinite;
+                    ">
+                                <i class="fas fa-check-circle" style="color: #4ade80;"></i>
+                                <span>Available for work</span>
+                            </div>
+
+                            <div style="
+                        background: rgba(108, 92, 231, 0.1);
+                        border: 1px solid rgba(108, 92, 231, 0.3);
+                        padding: 0.6rem 1.5rem;
+                        border-radius: 50px;
+                        display: inline-flex;
+                        align-items: center;
+                        gap: 0.5rem;
+                        backdrop-filter: blur(5px);
+                    ">
+                                <i class="fas fa-star" style="color: #fbbf24;"></i>
+                                <span>Top Rated</span>
+                            </div>
+                        </div>
+
+                        <!-- Quick Contact Icons -->
+                        <div style="margin-top: 1.5rem; display: flex; gap: 1rem; justify-content: center;">
+                            <a href="tel:+919137640812" style="
+                        width: 45px;
+                        height: 45px;
+                        background: rgba(108, 92, 231, 0.2);
+                        border-radius: 50%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        color: white;
+                        transition: all 0.3s ease;
+                        border: 1px solid rgba(108, 92, 231, 0.3);
+                    " onmouseover="this.style.background='#6c5ce7'; this.style.transform='translateY(-5px)'"
+                                onmouseout="this.style.background='rgba(108, 92, 231, 0.2)'; this.style.transform='translateY(0)'">
+                                <i class="fas fa-phone-alt"></i>
+                            </a>
+
+                            <a href="mailto:kushwahapappu730@gmail.com" style="
+                        width: 45px;
+                        height: 45px;
+                        background: rgba(108, 92, 231, 0.2);
+                        border-radius: 50%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        color: white;
+                        transition: all 0.3s ease;
+                        border: 1px solid rgba(108, 92, 231, 0.3);
+                    " onmouseover="this.style.background='#6c5ce7'; this.style.transform='translateY(-5px)'"
+                                onmouseout="this.style.background='rgba(108, 92, 231, 0.2)'; this.style.transform='translateY(0)'">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+
+                            <a href="https://wa.me/919137640812" style="
+                        width: 45px;
+                        height: 45px;
+                        background: rgba(108, 92, 231, 0.2);
+                        border-radius: 50%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        color: white;
+                        transition: all 0.3s ease;
+                        border: 1px solid rgba(108, 92, 231, 0.3);
+                    " onmouseover="this.style.background='#25D366'; this.style.transform='translateY(-5px)'"
+                                onmouseout="this.style.background='rgba(108, 92, 231, 0.2)'; this.style.transform='translateY(0)'">
+                                <i class="fab fa-whatsapp"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- Add these new animations to your existing CSS -->
+        <style>
+            @keyframes rotate {
+                from {
+                    transform: translate(-50%, -50%) rotate(0deg);
+                }
+
+                to {
+                    transform: translate(-50%, -50%) rotate(360deg);
+                }
+            }
+
+            @keyframes gradientRotate {
+
+                0%,
+                100% {
+                    filter: hue-rotate(0deg);
+                }
+
+                50% {
+                    filter: hue-rotate(30deg);
+                }
+            }
+
+            @keyframes float {
+
+                0%,
+                100% {
+                    transform: translateY(0);
+                }
+
+                50% {
+                    transform: translateY(-10px);
+                }
+            }
+
+            /* Responsive adjustments */
+            @media (max-width: 768px) {
+                .hero-content {
+                    flex-direction: column-reverse;
+                    text-align: center !important;
+                }
+
+                .hero-content>div {
+                    text-align: center !important;
+                }
+
+                .hero h1 {
+                    text-align: center !important;
+                }
+
+                .hero p {
+                    text-align: center !important;
+                    margin-left: auto !important;
+                    margin-right: auto !important;
+                }
+
+                .hero-stats {
+                    justify-content: center !important;
+                }
+
+                .hero-buttons {
+                    justify-content: center !important;
+                }
+
+                .hero-badge {
+                    margin-left: auto !important;
+                    margin-right: auto !important;
+                }
+            }
+        </style>
         <!-- About Section -->
+        <!-- About Section - Professional & Animated -->
         <section id="about" class="section">
             <div class="container">
                 <h2 class="section-title" data-aos="fade-up">About Me</h2>
 
+                <!-- Bio/Introduction Row -->
+                <div class="about-bio" data-aos="fade-up" data-aos-delay="100" style="
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            padding: 2rem;
+            background: rgba(108, 92, 231, 0.05);
+            border-radius: 30px;
+            border: 1px solid rgba(108, 92, 231, 0.2);
+            backdrop-filter: blur(10px);
+        ">
+                    <p style="font-size: 1.2rem; color: #e0e0e0; line-height: 1.8;">
+                        <i class="fas fa-quote-left" style="color: #6c5ce7; margin-right: 0.5rem; opacity: 0.5;"></i>
+                        I'm a passionate <span style="color: #a463f5; font-weight: 600;">Backend Developer</span> with
+                        3+ years of experience
+                        building scalable systems. I love solving complex problems and optimizing performance.
+                        <i class="fas fa-quote-right" style="color: #6c5ce7; margin-left: 0.5rem; opacity: 0.5;"></i>
+                    </p>
+                </div>
+
+                <!-- Main About Grid -->
                 <div class="about-grid">
-                    <div class="about-card" data-aos="fade-right">
+                    <!-- Card 1: Who I Am - Enhanced -->
+                    <div class="about-card" data-aos="fade-right" data-aos-delay="200">
                         <div class="about-icon">
-                            <i class="fas fa-user"></i>
+                            <i class="fas fa-user-circle"></i>
                         </div>
-                        <h3 style="margin-bottom: 1rem;">Who I Am</h3>
-                        <p style="color: #b0b0b0;">Full Stack Web Developer with 3+ years of hands-on experience in
-                            designing, developing, and maintaining dynamic web applications. Proficient in Laravel,
-                            Node.js, and modern web technologies.</p>
+                        <h3 style="margin-bottom: 1rem; font-size: 1.5rem;">Who I Am</h3>
+                        <p style="color: #b0b0b0; margin-bottom: 1.5rem;">
+                            Full Stack Web Developer with 3+ years of hands-on experience in designing, developing, and
+                            maintaining dynamic web applications.
+                        </p>
+
+                        <!-- Stats inside card -->
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1.5rem;">
+                            <div style="text-align: center;">
+                                <div style="font-size: 1.8rem; font-weight: 700; color: #6c5ce7;">3+</div>
+                                <div style="font-size: 0.8rem; color: #a0a0a0;">Years Experience</div>
+                            </div>
+                            <div style="text-align: center;">
+                                <div style="font-size: 1.8rem; font-weight: 700; color: #6c5ce7;">20+</div>
+                                <div style="font-size: 0.8rem; color: #a0a0a0;">Projects Done</div>
+                            </div>
+                        </div>
                     </div>
 
-                    <div class="about-card" data-aos="fade-up">
+                    <!-- Card 2: What I Do - Enhanced with Tech List -->
+                    <div class="about-card" data-aos="fade-up" data-aos-delay="300">
                         <div class="about-icon">
-                            <i class="fas fa-code"></i>
+                            <i class="fas fa-laptop-code"></i>
                         </div>
-                        <h3 style="margin-bottom: 1rem;">What I Do</h3>
-                        <p style="color: #b0b0b0;">Specialized in API development, server-side logic, and real-time
-                            systems. Transitioned from frontend to backend architecture for AI and crypto-based
-                            platforms.</p>
+                        <h3 style="margin-bottom: 1rem; font-size: 1.5rem;">What I Do</h3>
+                        <p style="color: #b0b0b0; margin-bottom: 1.5rem;">
+                            Specialized in API development, server-side logic, and real-time systems for AI and
+                            crypto-based platforms.
+                        </p>
+
+                        <!-- Tech Stack Pills -->
+                        <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+                            <span
+                                style="background: rgba(108,92,231,0.2); padding: 0.4rem 1rem; border-radius: 50px; font-size: 0.8rem; border: 1px solid rgba(108,92,231,0.3);">API
+                                Design</span>
+                            <span
+                                style="background: rgba(108,92,231,0.2); padding: 0.4rem 1rem; border-radius: 50px; font-size: 0.8rem; border: 1px solid rgba(108,92,231,0.3);">System
+                                Architecture</span>
+                            <span
+                                style="background: rgba(108,92,231,0.2); padding: 0.4rem 1rem; border-radius: 50px; font-size: 0.8rem; border: 1px solid rgba(108,92,231,0.3);">Database
+                                Optimization</span>
+                            <span
+                                style="background: rgba(108,92,231,0.2); padding: 0.4rem 1rem; border-radius: 50px; font-size: 0.8rem; border: 1px solid rgba(108,92,231,0.3);">Real-time
+                                Systems</span>
+                            <span
+                                style="background: rgba(108,92,231,0.2); padding: 0.4rem 1rem; border-radius: 50px; font-size: 0.8rem; border: 1px solid rgba(108,92,231,0.3);">Cloud
+                                Integration</span>
+                        </div>
                     </div>
 
-                    <div class="about-card" data-aos="fade-left">
+                    <!-- Card 3: Achievements - Enhanced with Icons -->
+                    <div class="about-card" data-aos="fade-left" data-aos-delay="400">
                         <div class="about-icon">
-                            <i class="fas fa-trophy"></i>
+                            <i class="fas fa-medal"></i>
                         </div>
-                        <h3 style="margin-bottom: 1rem;">Achievements</h3>
-                        <ul style="color: #b0b0b0; list-style: none;">
-                            <li style="margin-bottom: 0.5rem;">✓ 2 Performance Excellence Letters</li>
-                            <li style="margin-bottom: 0.5rem;">✓ Offered Project Manager Role</li>
-                            <li style="margin-bottom: 0.5rem;">✓ Selected for International Visits</li>
+                        <h3 style="margin-bottom: 1rem; font-size: 1.5rem;">Key Achievements</h3>
+
+                        <ul style="color: #b0b0b0; list-style: none; margin-bottom: 1.5rem;">
+                            <li style="margin-bottom: 1rem; display: flex; align-items: center; gap: 0.8rem;">
+                                <span
+                                    style="background: #6c5ce7; width: 24px; height: 24px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center;">
+                                    <i class="fas fa-check" style="color: white; font-size: 0.7rem;"></i>
+                                </span>
+                                <span>2x <strong style="color: #a463f5;">Performance Excellence</strong> Letters</span>
+                            </li>
+                            <li style="margin-bottom: 1rem; display: flex; align-items: center; gap: 0.8rem;">
+                                <span
+                                    style="background: #6c5ce7; width: 24px; height: 24px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center;">
+                                    <i class="fas fa-check" style="color: white; font-size: 0.7rem;"></i>
+                                </span>
+                                <span>Offered <strong style="color: #a463f5;">Project Manager</strong> Role</span>
+                            </li>
+                            <li style="margin-bottom: 1rem; display: flex; align-items: center; gap: 0.8rem;">
+                                <span
+                                    style="background: #6c5ce7; width: 24px; height: 24px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center;">
+                                    <i class="fas fa-check" style="color: white; font-size: 0.7rem;"></i>
+                                </span>
+                                <span>Selected for <strong style="color: #a463f5;">International Business</strong>
+                                    Visits</span>
+                            </li>
                         </ul>
+
+                        <!-- Award Badge -->
+                        <div style="
+                    background: linear-gradient(135deg, rgba(108,92,231,0.2), rgba(164,99,245,0.2));
+                    padding: 0.8rem;
+                    border-radius: 15px;
+                    border: 1px dashed rgba(108,92,231,0.5);
+                    text-align: center;
+                ">
+                            <i class="fas fa-trophy" style="color: #fbbf24; margin-right: 0.5rem;"></i>
+                            <span style="color: white;">API Development Leader - 250+ APIs</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stats Row - Professional Numbers -->
+                <div style="
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+            padding: 2rem;
+            background: rgba(108, 92, 231, 0.03);
+            border-radius: 40px;
+            border: 1px solid rgba(108, 92, 231, 0.2);
+        " data-aos="zoom-in" data-aos-delay="500">
+
+                    <div style="text-align: center;">
+                        <div
+                            style="font-size: 2.5rem; font-weight: 800; background: linear-gradient(135deg, #6c5ce7, #a463f5); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                            250+</div>
+                        <div style="color: #a0a0a0; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px;">
+                            APIs Developed</div>
+                    </div>
+
+                    <div style="text-align: center;">
+                        <div
+                            style="font-size: 2.5rem; font-weight: 800; background: linear-gradient(135deg, #6c5ce7, #a463f5); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                            3+</div>
+                        <div style="color: #a0a0a0; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px;">
+                            Years Experience</div>
+                    </div>
+
+                    <div style="text-align: center;">
+                        <div
+                            style="font-size: 2.5rem; font-weight: 800; background: linear-gradient(135deg, #6c5ce7, #a463f5); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                            400+</div>
+                        <div style="color: #a0a0a0; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px;">
+                            Websites Managed</div>
+                    </div>
+
+                    <div style="text-align: center;">
+                        <div
+                            style="font-size: 2.5rem; font-weight: 800; background: linear-gradient(135deg, #6c5ce7, #a463f5); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                            100%</div>
+                        <div style="color: #a0a0a0; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px;">
+                            Client Satisfaction</div>
                     </div>
                 </div>
             </div>
@@ -858,55 +1637,371 @@
             </div>
         </section>
 
-        <!-- Experience Section -->
+        <!-- Experience Section - Professional Timeline -->
         <section id="experience" class="section">
             <div class="container">
                 <h2 class="section-title" data-aos="fade-up">Work Experience</h2>
 
+                <!-- Professional Timeline -->
                 <div class="timeline">
-                    <!-- Bingo Singapore -->
-                    <div class="timeline-item" data-aos="fade-left">
-                        <span class="timeline-date">04/2024 - Present</span>
-                        <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Back End Developer</h3>
-                        <p style="color: #a463f5; margin-bottom: 1rem;">Bingo Singapore Pte. Ltd. - Noida</p>
-                        <ul style="color: #b0b0b0; margin-left: 1.5rem;">
-                            <li style="margin-bottom: 0.5rem;">Developed scalable backend systems for aiiongold.com,
-                                aiiongold.org, etdo.org</li>
-                            <li style="margin-bottom: 0.5rem;">Migrated Laravel backend to Node.js, improving
-                                performance</li>
-                            <li style="margin-bottom: 0.5rem;">Built APIs, KYC module, referral system with Redis and
-                                WebSockets</li>
+                    <!-- Bingo Singapore - Current Job Highlight -->
+                    <div class="timeline-item" data-aos="fade-up" data-aos-delay="100">
+                        <!-- Company Logo/Icon -->
+                        <div style="
+                    position: absolute;
+                    top: -15px;
+                    right: 30px;
+                    background: linear-gradient(135deg, #6c5ce7, #a463f5);
+                    width: 50px;
+                    height: 50px;
+                    border-radius: 15px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    box-shadow: 0 10px 20px rgba(108,92,231,0.3);
+                    border: 3px solid white;
+                    z-index: 2;
+                ">
+                            <i class="fas fa-building" style="color: white; font-size: 1.5rem;"></i>
+                        </div>
+
+                        <div
+                            style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; margin-bottom: 0.5rem;">
+                            <span class="timeline-date" style="
+                        background: linear-gradient(135deg, #6c5ce7, #a463f5);
+                        padding: 0.5rem 1.5rem;
+                    ">
+                                <i class="fas fa-calendar-alt" style="margin-right: 0.5rem;"></i>04/2024 - Present
+                            </span>
+
+                            <!-- Current Job Badge -->
+                            <span style="
+                        background: rgba(74, 222, 128, 0.2);
+                        color: #4ade80;
+                        padding: 0.3rem 1rem;
+                        border-radius: 50px;
+                        font-size: 0.8rem;
+                        border: 1px solid #4ade80;
+                    ">
+                                <i class="fas fa-circle" style="font-size: 0.5rem; margin-right: 0.3rem;"></i> Currently
+                                Working
+                            </span>
+                        </div>
+
+                        <h3
+                            style="font-size: 1.8rem; margin-bottom: 0.3rem; background: linear-gradient(135deg, #6c5ce7, #a463f5); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                            Back End Developer
+                        </h3>
+
+                        <div
+                            style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1.5rem; flex-wrap: wrap;">
+                            <i class="fas fa-map-marker-alt" style="color: #a463f5;"></i>
+                            <span style="color: #a0a0a0;">Bingo Singapore Pte. Ltd. - Noida</span>
+
+                            <span style="
+                        background: rgba(108,92,231,0.2);
+                        padding: 0.2rem 0.8rem;
+                        border-radius: 50px;
+                        font-size: 0.7rem;
+                        margin-left: 1rem;
+                    ">Full-time</span>
+                        </div>
+
+                        <!-- Key Achievements with Icons -->
+                        <ul style="color: #b0b0b0; list-style: none; margin-left: 0;">
+                            <li style="margin-bottom: 1rem; display: flex; align-items: flex-start; gap: 1rem;">
+                                <i class="fas fa-check-circle" style="color: #6c5ce7; margin-top: 0.2rem;"></i>
+                                <span>Developed scalable backend systems for <strong>aiiongold.com, aiiongold.org,
+                                        etdo.org</strong></span>
+                            </li>
+                            <li style="margin-bottom: 1rem; display: flex; align-items: flex-start; gap: 1rem;">
+                                <i class="fas fa-check-circle" style="color: #6c5ce7; margin-top: 0.2rem;"></i>
+                                <span>Migrated Laravel backend to <strong>Node.js</strong>, improving performance by
+                                    40%</span>
+                            </li>
+                            <li style="margin-bottom: 1rem; display: flex; align-items: flex-start; gap: 1rem;">
+                                <i class="fas fa-check-circle" style="color: #6c5ce7; margin-top: 0.2rem;"></i>
+                                <span>Built <strong>250+ APIs</strong>, KYC module, referral system with Redis and
+                                    WebSockets</span>
+                            </li>
                         </ul>
+
+                        <!-- Tech Stack Used -->
+                        <div
+                            style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.1);">
+                            <span
+                                style="background: rgba(108,92,231,0.1); padding: 0.3rem 1rem; border-radius: 50px; font-size: 0.8rem;">Laravel</span>
+                            <span
+                                style="background: rgba(108,92,231,0.1); padding: 0.3rem 1rem; border-radius: 50px; font-size: 0.8rem;">Node.js</span>
+                            <span
+                                style="background: rgba(108,92,231,0.1); padding: 0.3rem 1rem; border-radius: 50px; font-size: 0.8rem;">Redis</span>
+                            <span
+                                style="background: rgba(108,92,231,0.1); padding: 0.3rem 1rem; border-radius: 50px; font-size: 0.8rem;">WebSockets</span>
+                            <span
+                                style="background: rgba(108,92,231,0.1); padding: 0.3rem 1rem; border-radius: 50px; font-size: 0.8rem;">MySQL</span>
+                            <span
+                                style="background: rgba(108,92,231,0.1); padding: 0.3rem 1rem; border-radius: 50px; font-size: 0.8rem;">JWT</span>
+                        </div>
                     </div>
 
                     <!-- Mind Mingles -->
-                    <div class="timeline-item" data-aos="fade-right" data-aos-delay="100">
-                        <span class="timeline-date">10/2023 - 04/2024</span>
-                        <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Web Developer (WordPress)</h3>
-                        <p style="color: #a463f5; margin-bottom: 1rem;">Mind Mingles - Mayur Vihar</p>
-                        <ul style="color: #b0b0b0; margin-left: 1.5rem;">
-                            <li style="margin-bottom: 0.5rem;">Maintained and developed 400+ dynamic WordPress websites
+                    <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
+                        <!-- Company Logo/Icon -->
+                        <div style="
+                    position: absolute;
+                    top: -15px;
+                    right: 30px;
+                    background: linear-gradient(135deg, #a463f5, #ff6b6b);
+                    width: 50px;
+                    height: 50px;
+                    border-radius: 15px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    box-shadow: 0 10px 20px rgba(164,99,245,0.3);
+                    border: 3px solid white;
+                    z-index: 2;
+                ">
+                            <i class="fab fa-wordpress" style="color: white; font-size: 1.5rem;"></i>
+                        </div>
+
+                        <div
+                            style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; margin-bottom: 0.5rem;">
+                            <span class="timeline-date" style="
+                        background: linear-gradient(135deg, #a463f5, #ff6b6b);
+                        padding: 0.5rem 1.5rem;
+                    ">
+                                <i class="fas fa-calendar-alt" style="margin-right: 0.5rem;"></i>10/2023 - 04/2024
+                            </span>
+                        </div>
+
+                        <h3
+                            style="font-size: 1.8rem; margin-bottom: 0.3rem; background: linear-gradient(135deg, #a463f5, #ff6b6b); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                            Web Developer (WordPress)
+                        </h3>
+
+                        <div
+                            style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1.5rem; flex-wrap: wrap;">
+                            <i class="fas fa-map-marker-alt" style="color: #a463f5;"></i>
+                            <span style="color: #a0a0a0;">Mind Mingles - Mayur Vihar</span>
+                        </div>
+
+                        <ul style="color: #b0b0b0; list-style: none; margin-left: 0;">
+                            <li style="margin-bottom: 1rem; display: flex; align-items: flex-start; gap: 1rem;">
+                                <i class="fas fa-check-circle" style="color: #a463f5; margin-top: 0.2rem;"></i>
+                                <span>Maintained and developed <strong>400+ dynamic WordPress websites</strong></span>
                             </li>
-                            <li style="margin-bottom: 0.5rem;">Customized themes and optimized site speed</li>
-                            <li style="margin-bottom: 0.5rem;">Implemented client requirements with responsive design
+                            <li style="margin-bottom: 1rem; display: flex; align-items: flex-start; gap: 1rem;">
+                                <i class="fas fa-check-circle" style="color: #a463f5; margin-top: 0.2rem;"></i>
+                                <span>Customized themes and optimized site speed, achieving <strong>90+ PageSpeed
+                                        score</strong></span>
+                            </li>
+                            <li style="margin-bottom: 1rem; display: flex; align-items: flex-start; gap: 1rem;">
+                                <i class="fas fa-check-circle" style="color: #a463f5; margin-top: 0.2rem;"></i>
+                                <span>Implemented client requirements with <strong>responsive design</strong> and
+                                    cross-browser compatibility</span>
                             </li>
                         </ul>
+
+                        <div
+                            style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.1);">
+                            <span
+                                style="background: rgba(164,99,245,0.1); padding: 0.3rem 1rem; border-radius: 50px; font-size: 0.8rem;">WordPress</span>
+                            <span
+                                style="background: rgba(164,99,245,0.1); padding: 0.3rem 1rem; border-radius: 50px; font-size: 0.8rem;">PHP</span>
+                            <span
+                                style="background: rgba(164,99,245,0.1); padding: 0.3rem 1rem; border-radius: 50px; font-size: 0.8rem;">SEO</span>
+                            <span
+                                style="background: rgba(164,99,245,0.1); padding: 0.3rem 1rem; border-radius: 50px; font-size: 0.8rem;">HTML/CSS</span>
+                            <span
+                                style="background: rgba(164,99,245,0.1); padding: 0.3rem 1rem; border-radius: 50px; font-size: 0.8rem;">JavaScript</span>
+                        </div>
                     </div>
 
                     <!-- TourisinfoTech -->
-                    <div class="timeline-item" data-aos="fade-left" data-aos-delay="200">
-                        <span class="timeline-date">08/2022 - 10/2023</span>
-                        <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Web Developer (Frontend + PHP)</h3>
-                        <p style="color: #a463f5; margin-bottom: 1rem;">TourisinfoTech - Delhi</p>
-                        <ul style="color: #b0b0b0; margin-left: 1.5rem;">
-                            <li style="margin-bottom: 0.5rem;">Designed websites using HTML, CSS, JS, PHP</li>
-                            <li style="margin-bottom: 0.5rem;">Created custom OTP API generator</li>
-                            <li style="margin-bottom: 0.5rem;">Implemented form validations and backend integration</li>
+                    <div class="timeline-item" data-aos="fade-up" data-aos-delay="300">
+                        <!-- Company Logo/Icon -->
+                        <div style="
+                    position: absolute;
+                    top: -15px;
+                    right: 30px;
+                    background: linear-gradient(135deg, #ff6b6b, #feca57);
+                    width: 50px;
+                    height: 50px;
+                    border-radius: 15px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    box-shadow: 0 10px 20px rgba(255,107,107,0.3);
+                    border: 3px solid white;
+                    z-index: 2;
+                ">
+                            <i class="fas fa-code" style="color: white; font-size: 1.5rem;"></i>
+                        </div>
+
+                        <div
+                            style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; margin-bottom: 0.5rem;">
+                            <span class="timeline-date" style="
+                        background: linear-gradient(135deg, #ff6b6b, #feca57);
+                        padding: 0.5rem 1.5rem;
+                    ">
+                                <i class="fas fa-calendar-alt" style="margin-right: 0.5rem;"></i>08/2022 - 10/2023
+                            </span>
+                        </div>
+
+                        <h3
+                            style="font-size: 1.8rem; margin-bottom: 0.3rem; background: linear-gradient(135deg, #ff6b6b, #feca57); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                            Web Developer (Frontend + PHP)
+                        </h3>
+
+                        <div
+                            style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1.5rem; flex-wrap: wrap;">
+                            <i class="fas fa-map-marker-alt" style="color: #ff6b6b;"></i>
+                            <span style="color: #a0a0a0;">TourisinfoTech - Delhi</span>
+                        </div>
+
+                        <ul style="color: #b0b0b0; list-style: none; margin-left: 0;">
+                            <li style="margin-bottom: 1rem; display: flex; align-items: flex-start; gap: 1rem;">
+                                <i class="fas fa-check-circle" style="color: #ff6b6b; margin-top: 0.2rem;"></i>
+                                <span>Designed <strong>50+ responsive websites</strong> using HTML, CSS, JS, PHP</span>
+                            </li>
+                            <li style="margin-bottom: 1rem; display: flex; align-items: flex-start; gap: 1rem;">
+                                <i class="fas fa-check-circle" style="color: #ff6b6b; margin-top: 0.2rem;"></i>
+                                <span>Created custom <strong>OTP API generator</strong> for authentication system</span>
+                            </li>
+                            <li style="margin-bottom: 1rem; display: flex; align-items: flex-start; gap: 1rem;">
+                                <i class="fas fa-check-circle" style="color: #ff6b6b; margin-top: 0.2rem;"></i>
+                                <span>Implemented form validations and <strong>backend integration</strong> with
+                                    MySQL</span>
+                            </li>
                         </ul>
+
+                        <div
+                            style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.1);">
+                            <span
+                                style="background: rgba(255,107,107,0.1); padding: 0.3rem 1rem; border-radius: 50px; font-size: 0.8rem;">HTML5</span>
+                            <span
+                                style="background: rgba(255,107,107,0.1); padding: 0.3rem 1rem; border-radius: 50px; font-size: 0.8rem;">CSS3</span>
+                            <span
+                                style="background: rgba(255,107,107,0.1); padding: 0.3rem 1rem; border-radius: 50px; font-size: 0.8rem;">JavaScript</span>
+                            <span
+                                style="background: rgba(255,107,107,0.1); padding: 0.3rem 1rem; border-radius: 50px; font-size: 0.8rem;">PHP</span>
+                            <span
+                                style="background: rgba(255,107,107,0.1); padding: 0.3rem 1rem; border-radius: 50px; font-size: 0.8rem;">MySQL</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Experience Summary Cards -->
+                <div style="
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        " data-aos="fade-up" data-aos-delay="400">
+
+                    <div style="
+                background: rgba(108,92,231,0.1);
+                border-radius: 20px;
+                padding: 1.5rem;
+                text-align: center;
+                border: 1px solid rgba(108,92,231,0.3);
+                backdrop-filter: blur(10px);
+            ">
+                        <div style="font-size: 2.5rem; font-weight: 700; color: #6c5ce7;">3+</div>
+                        <div style="color: #a0a0a0;">Years of Experience</div>
+                    </div>
+
+                    <div style="
+                background: rgba(164,99,245,0.1);
+                border-radius: 20px;
+                padding: 1.5rem;
+                text-align: center;
+                border: 1px solid rgba(164,99,245,0.3);
+                backdrop-filter: blur(10px);
+            ">
+                        <div style="font-size: 2.5rem; font-weight: 700; color: #a463f5;">3</div>
+                        <div style="color: #a0a0a0;">Companies Worked</div>
+                    </div>
+
+                    <div style="
+                background: rgba(255,107,107,0.1);
+                border-radius: 20px;
+                padding: 1.5rem;
+                text-align: center;
+                border: 1px solid rgba(255,107,107,0.3);
+                backdrop-filter: blur(10px);
+            ">
+                        <div style="font-size: 2.5rem; font-weight: 700; color: #ff6b6b;">450+</div>
+                        <div style="color: #a0a0a0;">Projects Managed</div>
                     </div>
                 </div>
             </div>
         </section>
+
+        <!-- Add this CSS for better timeline styling -->
+        <style>
+            .timeline-item {
+                position: relative;
+                padding: 2rem;
+                margin-bottom: 3rem;
+                background: rgba(255, 255, 255, 0.02);
+                border: 1px solid rgba(108, 92, 231, 0.2);
+                border-radius: 30px;
+                transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+                overflow: hidden;
+            }
+
+            .timeline-item::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 4px;
+                height: 100%;
+                background: linear-gradient(180deg, #6c5ce7, #a463f5, #ff6b6b);
+                opacity: 0;
+                transition: opacity 0.3s ease;
+            }
+
+            .timeline-item:hover::before {
+                opacity: 1;
+            }
+
+            .timeline-item:hover {
+                transform: translateX(10px) scale(1.02);
+                border-color: #6c5ce7;
+                box-shadow: 0 20px 40px rgba(108, 92, 231, 0.3);
+            }
+
+            .timeline-date {
+                display: inline-block;
+                padding: 0.5rem 1.5rem;
+                border-radius: 50px;
+                color: white;
+                font-size: 0.9rem;
+                font-weight: 600;
+                margin-bottom: 1rem;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            }
+
+            /* Responsive adjustments */
+            @media (max-width: 768px) {
+                .timeline-item {
+                    padding: 1.5rem;
+                }
+
+                .timeline-item>div:first-child {
+                    flex-direction: column;
+                    align-items: flex-start;
+                    gap: 1rem;
+                }
+
+                .timeline-item>div:first-child span {
+                    margin-left: 0 !important;
+                }
+            }
+        </style>
 
         <!-- Projects Section -->
         <section id="projects" class="section">
@@ -977,8 +2072,8 @@
                             <a href="https://www.instagram.com/pappu_kush0812/" class="social-link"
                                 style="width: 45px; height: 45px; background: rgba(108, 92, 231, 0.2); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; transition: all 0.3s ease;"
                                 target="_blank">
-                                <i class="fab fa-instagram"></i>  
-                            </a>  
+                                <i class="fab fa-instagram"></i>
+                            </a>
                         </div>
                     </div>
 
@@ -1028,18 +2123,39 @@
     <!-- Scripts -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        // Initialize AOS
+        // Initialize AOS with smoother settings
         AOS.init({
-            duration: 800,
-            once: true,
-            offset: 100
+            duration: 1000,
+            once: false,
+            mirror: true,
+            offset: 120,
+            easing: 'ease-in-out-cubic',
+            delay: 100
         });
 
-        // Hide loading screen
+        // Mouse Follower Effect
+        const follower = document.getElementById('mouseFollower');
+
+        document.addEventListener('mousemove', (e) => {
+            follower.style.left = e.clientX + 'px';
+            follower.style.top = e.clientY + 'px';
+        });
+
+        document.addEventListener('mouseenter', () => {
+            follower.style.opacity = '1';
+        });
+
+        document.addEventListener('mouseleave', () => {
+            follower.style.opacity = '0';
+        });
+
+        // Hide loading screen with animation
         window.addEventListener('load', function () {
-            document.getElementById('loading').style.opacity = '0';
             setTimeout(() => {
-                document.getElementById('loading').style.display = 'none';
+                document.getElementById('loading').style.opacity = '0';
+                setTimeout(() => {
+                    document.getElementById('loading').style.display = 'none';
+                }, 500);
             }, 500);
         });
 
@@ -1052,8 +2168,10 @@
             const icon = menuBtn.querySelector('i');
             if (navLinks.classList.contains('active')) {
                 icon.className = 'fas fa-times';
+                document.body.style.overflow = 'hidden';
             } else {
                 icon.className = 'fas fa-bars';
+                document.body.style.overflow = 'auto';
             }
         });
 
@@ -1062,6 +2180,7 @@
             link.addEventListener('click', () => {
                 navLinks.classList.remove('active');
                 document.querySelector('#menuBtn i').className = 'fas fa-bars';
+                document.body.style.overflow = 'auto';
             });
         });
 
@@ -1109,6 +2228,11 @@
                 title: 'MindMingles.com',
                 desc: 'SEO agency website with optimized performance and 400+ client websites managed.',
                 tech: ['WordPress', 'PHP', 'SEO']
+            },
+            {
+                title: 'Wagnistrip.com',
+                desc: 'Travel booking platform for flights, hotels, cabs, and holiday packages. Features smart search, fare comparison, and group booking system.',
+                tech: ['Laravel', 'MySQL', 'Redis', 'REST APIs', 'Payment Gateway']
             }
         ];
 
@@ -1163,31 +2287,26 @@
         populateProjects();
 
         // Form Submission
-        // Contact Form Handling with FormSubmit.co
         document.getElementById('contact-form').addEventListener('submit', function (e) {
-            e.preventDefault(); // Form ko default submit hone se roko
+            e.preventDefault();
 
             const form = this;
             const submitBtn = form.querySelector('button[type="submit"]');
             const originalText = submitBtn.innerHTML;
 
-            // Show loading state
             submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
             submitBtn.disabled = true;
 
-            // Form data ko collect karo
             const formData = new FormData(form);
 
-            // AJAX se form submit karo
             fetch(form.action, {
                 method: 'POST',
                 body: formData
             })
                 .then(response => {
                     if (response.ok) {
-                        // Success message show karo
                         showNotification('Message sent successfully! I will respond within 24 hours.', 'success');
-                        form.reset(); // Form clear karo
+                        form.reset();
                     } else {
                         showNotification('Something went wrong. Please try again.', 'error');
                     }
@@ -1197,49 +2316,44 @@
                     showNotification('Network error. Please check your connection.', 'error');
                 })
                 .finally(() => {
-                    // Button ko wapas normal karo
                     submitBtn.innerHTML = originalText;
                     submitBtn.disabled = false;
                 });
         });
 
-        // Notification function (ye bhi add karo)
+        // Notification function
         function showNotification(message, type) {
-            // Pehle se koi notification hai to hatado
             const existingNotification = document.querySelector('.notification');
             if (existingNotification) {
                 existingNotification.remove();
             }
 
-            // Create notification element
             const notification = document.createElement('div');
             notification.className = `notification ${type}`;
             notification.innerHTML = `
-        <div style="display: flex; align-items: center; gap: 1rem;">
-            <i class="fas ${type === 'success' ? 'fa-check-circle' : 'fa-exclamation-circle'}" style="font-size: 1.5rem;"></i>
-            <span>${message}</span>
-            <button onclick="this.parentElement.parentElement.remove()" style="background: none; border: none; color: white; margin-left: 1rem; cursor: pointer; font-size: 1.2rem;">&times;</button>
-        </div>
-    `;
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                    <i class="fas ${type === 'success' ? 'fa-check-circle' : 'fa-exclamation-circle'}" style="font-size: 1.5rem;"></i>
+                    <span>${message}</span>
+                    <button onclick="this.parentElement.parentElement.remove()" style="background: none; border: none; color: white; margin-left: 1rem; cursor: pointer; font-size: 1.2rem;">&times;</button>
+                </div>
+            `;
 
-            // Style notification
             notification.style.cssText = `
-        position: fixed;
-        top: 80px;
-        right: 20px;
-        background: ${type === 'success' ? 'linear-gradient(135deg, #00b09b, #96c93d)' : 'linear-gradient(135deg, #ff6b6b, #ee5253)'};
-        color: white;
-        padding: 1rem 2rem;
-        border-radius: 10px;
-        box-shadow: 0 5px 20px rgba(0,0,0,0.2);
-        z-index: 9999;
-        animation: slideIn 0.3s ease;
-        font-size: 0.95rem;
-    `;
+                position: fixed;
+                top: 80px;
+                right: 20px;
+                background: ${type === 'success' ? 'linear-gradient(135deg, #00b09b, #96c93d)' : 'linear-gradient(135deg, #ff6b6b, #ee5253)'};
+                color: white;
+                padding: 1rem 2rem;
+                border-radius: 10px;
+                box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+                z-index: 9999;
+                animation: slideIn 0.3s ease;
+                font-size: 0.95rem;
+            `;
 
             document.body.appendChild(notification);
 
-            // Auto remove after 5 seconds
             setTimeout(() => {
                 if (notification.parentNode) {
                     notification.style.animation = 'slideOut 0.3s ease';
@@ -1252,30 +2366,18 @@
             }, 5000);
         }
 
-        // CSS animations add karo (agar pehle se nahi hai to)
-        const style = document.createElement('style');
-        style.textContent = `
-    @keyframes slideIn {
-        from { transform: translateX(100%); opacity: 0; }
-        to { transform: translateX(0); opacity: 1; }
-    }
-    
-    @keyframes slideOut {
-        from { transform: translateX(0); opacity: 1; }
-        to { transform: translateX(100%); opacity: 0; }
-    }
-`;
-        document.head.appendChild(style);
-
-        // Smooth Scroll
+        // Smooth Scroll with offset
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
+                    const offset = 80;
+                    const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - offset;
+
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
                     });
                 }
             });
@@ -1287,13 +2389,28 @@
             if (window.scrollY > 50) {
                 nav.style.background = 'rgba(15, 15, 26, 0.98)';
                 nav.style.boxShadow = '0 5px 20px rgba(0,0,0,0.3)';
+                nav.style.backdropFilter = 'blur(10px)';
             } else {
                 nav.style.background = 'rgba(15, 15, 26, 0.95)';
                 nav.style.boxShadow = 'none';
             }
         });
 
-        // Add active class to nav links on scroll
+        // Parallax effect on floating shapes
+        window.addEventListener('mousemove', (e) => {
+            const shapes = document.querySelectorAll('.floating-shape');
+            const mouseX = e.clientX / window.innerWidth;
+            const mouseY = e.clientY / window.innerHeight;
+
+            shapes.forEach((shape, index) => {
+                const speed = index + 1;
+                const x = (mouseX * speed * 20);
+                const y = (mouseY * speed * 20);
+                shape.style.transform = `translate(${x}px, ${y}px)`;
+            });
+        });
+
+        // Active nav link on scroll
         const sections = document.querySelectorAll('section');
         const navItems = document.querySelectorAll('.nav-links a');
 
@@ -1314,6 +2431,101 @@
                 }
             });
         });
+
+        // Add CSS animations if not exists
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideIn {
+                from { transform: translateX(100%); opacity: 0; }
+                to { transform: translateX(0); opacity: 1; }
+            }
+            
+            @keyframes slideOut {
+                from { transform: translateX(0); opacity: 1; }
+                to { transform: translateX(100%); opacity: 0; }
+            }
+
+            @keyframes fadeInUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(30px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+        `;
+        document.head.appendChild(style);
+
+
+        // Rotating Text Effect
+const rotatingText = document.getElementById('rotating-text');
+const titles = [
+    'Backend Developer',
+    'Laravel Developer', 
+    'Node.js Developer',
+    'API Developer',
+    'Full Stack Developer'
+];
+
+let titleIndex = 0;
+let charIndex = 0;
+let isDeleting = false;
+let isWaiting = false;
+
+function typeEffect() {
+    const currentTitle = titles[titleIndex];
+    
+    if (isDeleting) {
+        // Deleting text
+        rotatingText.textContent = currentTitle.substring(0, charIndex - 1);
+        charIndex--;
+    } else {
+        // Typing text
+        rotatingText.textContent = currentTitle.substring(0, charIndex + 1);
+        charIndex++;
+    }
+
+    // If word is complete
+    if (!isDeleting && charIndex === currentTitle.length) {
+        isWaiting = true;
+        setTimeout(() => {
+            isDeleting = true;
+            isWaiting = false;
+        }, 2000); // Wait 2 seconds before deleting
+    }
+
+    // If deletion is complete
+    if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        titleIndex = (titleIndex + 1) % titles.length;
+    }
+
+    // Speed control
+    let typingSpeed = isDeleting ? 50 : 100; // Deleting faster, typing slower
+    
+    if (isWaiting) {
+        typingSpeed = 2000; // Wait time
+    }
+
+    setTimeout(typeEffect, typingSpeed);
+}
+
+// Start the typing effect
+document.addEventListener('DOMContentLoaded', () => {
+    setTimeout(typeEffect, 1000); // Start after 1 second
+});
+
+// Add cursor blink animation
+const styless = document.createElement('style');
+styless.textContent = `
+    @keyframes blinkCursor {
+        0%, 100% { border-color: #6c5ce7; }
+        50% { border-color: transparent; }
+    }
+`;
+document.head.appendChild(styless);
     </script>
 </body>
 
