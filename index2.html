@@ -1100,6 +1100,7 @@
         // Form Submission
         document.getElementById('contact-form').addEventListener('submit', function(e) {
             e.preventDefault();
+            submitForm(this);
             alert('Thank you for your message! I will respond within 24 hours.');
             this.reset();
         });
