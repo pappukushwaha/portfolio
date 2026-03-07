@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
     <!-- AOS Animation Library -->
-    <link rel="shortcut icon" href="images/pappu.jpg" type="image/x-icon">
+    <link rel="shortcut icon" href="images/pappuico.png" type="image/x-icon">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <!-- Animate.css -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
@@ -1089,8 +1089,8 @@
     </div>
 
     <!-- Floating Shapes -->
-    <div class="floating-shape shape-1" style="display: none;"></div>
-    <div class="floating-shape shape-2" style="display: none;"></div>
+    <div class="floating-shape shape-1" ></div>
+    <div class="floating-shape shape-2"></div>
 
     <!-- Navigation -->
     <nav>
@@ -2049,7 +2049,7 @@
                             </div>
                             <div>
                                 <div style="font-size: 0.8rem; color: #b0b0b0;">Location</div>
-                                <div style="font-weight: 600;">Khoda, Noida UP</div>
+                                <div style="font-weight: 600;">Noida Sector 62, UP</div>
                             </div>
                         </div>
 
@@ -2262,7 +2262,7 @@
                 projectCard.className = 'project-card';
                 projectCard.setAttribute('data-aos', 'fade-up');
                 projectCard.setAttribute('data-aos-delay', (index * 100).toString());
-                projectCard.innerHTML = `
+                projectCard.innerHTML = `<a href="https://${project.title || '#'}" target="_blank" style="text-decoration: none; color: inherit;">
                     <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
                         <div class="project-icon" style="width: 50px; height: 50px; background: rgba(108, 92, 231, 0.2); border-radius: 15px; display: flex; align-items: center; justify-content: center;">
                             <i class="fas fa-code" style="color: #a463f5;"></i>
@@ -2274,6 +2274,7 @@
                     </div>
                     <h3 style="font-size: 1.3rem; margin-bottom: 0.8rem;">${project.title}</h3>
                     <p style="color: #b0b0b0; font-size: 0.95rem; margin-bottom: 1.5rem;">${project.desc}</p>
+                    </a>
                     <div class="project-tech">
                         ${project.tech.map(t => `<span class="tech-tag">${t}</span>`).join('')}
                     </div>
@@ -2460,6 +2461,74 @@
 
 
         // Rotating Text Effect
+// const rotatingText = document.getElementById('rotating-text');
+// const titles = [
+//     'Backend Developer',
+//     'Laravel Developer', 
+//     'Node.js Developer',
+//     'API Developer',
+//     'Full Stack Developer'
+// ];
+
+// let titleIndex = 0;
+// let charIndex = 0;
+// let isDeleting = false;
+// let isWaiting = false;
+
+// function typeEffect() {
+//     const currentTitle = titles[titleIndex];
+    
+//     if (isDeleting) {
+//         // Deleting text
+//         rotatingText.textContent = currentTitle.substring(0, charIndex - 1);
+//         charIndex--;
+//     } else {
+//         // Typing text
+//         rotatingText.textContent = currentTitle.substring(0, charIndex + 1);
+//         charIndex++;
+//     }
+
+//     // If word is complete
+//     if (!isDeleting && charIndex === currentTitle.length) {
+//         isWaiting = true;
+//         setTimeout(() => {
+//             isDeleting = true;
+//             isWaiting = false;
+//         }, 2000); // Wait 2 seconds before deleting
+//     }
+
+//     // If deletion is complete
+//     if (isDeleting && charIndex === 0) {
+//         isDeleting = false;
+//         titleIndex = (titleIndex + 1) % titles.length;
+//     }
+
+//     // Speed control
+//     let typingSpeed = isDeleting ? 50 : 100; // Deleting faster, typing slower
+    
+//     if (isWaiting) {
+//         typingSpeed = 2000; // Wait time
+//     }
+
+//     setTimeout(typeEffect, typingSpeed);
+// }
+
+// // Start the typing effect
+// document.addEventListener('DOMContentLoaded', () => {
+//     setTimeout(typeEffect, 1000); // Start after 1 second
+// });
+
+// // Add cursor blink animation
+// const styless = document.createElement('style');
+// styless.textContent = `
+//     @keyframes blinkCursor {
+//         0%, 100% { border-color: #6c5ce7; }
+//         50% { border-color: transparent; }
+//     }
+// `;
+// document.head.appendChild(styless);
+
+// Simple Fade In/Out Effect
 const rotatingText = document.getElementById('rotating-text');
 const titles = [
     'Backend Developer',
@@ -2469,63 +2538,32 @@ const titles = [
     'Full Stack Developer'
 ];
 
-let titleIndex = 0;
-let charIndex = 0;
-let isDeleting = false;
-let isWaiting = false;
+let currentIndex = 0;
 
-function typeEffect() {
-    const currentTitle = titles[titleIndex];
+function changeText() {
+    // Fade out
+    rotatingText.style.opacity = '0';
+    rotatingText.style.transform = 'translateY(10px)';
     
-    if (isDeleting) {
-        // Deleting text
-        rotatingText.textContent = currentTitle.substring(0, charIndex - 1);
-        charIndex--;
-    } else {
-        // Typing text
-        rotatingText.textContent = currentTitle.substring(0, charIndex + 1);
-        charIndex++;
-    }
-
-    // If word is complete
-    if (!isDeleting && charIndex === currentTitle.length) {
-        isWaiting = true;
-        setTimeout(() => {
-            isDeleting = true;
-            isWaiting = false;
-        }, 2000); // Wait 2 seconds before deleting
-    }
-
-    // If deletion is complete
-    if (isDeleting && charIndex === 0) {
-        isDeleting = false;
-        titleIndex = (titleIndex + 1) % titles.length;
-    }
-
-    // Speed control
-    let typingSpeed = isDeleting ? 50 : 100; // Deleting faster, typing slower
+    setTimeout(() => {
+        // Change text
+        currentIndex = (currentIndex + 1) % titles.length;
+        rotatingText.textContent = titles[currentIndex];
+        
+        // Fade in
+        rotatingText.style.opacity = '1';
+        rotatingText.style.transform = 'translateY(0)';
+    }, 500);
     
-    if (isWaiting) {
-        typingSpeed = 2000; // Wait time
-    }
-
-    setTimeout(typeEffect, typingSpeed);
+    setTimeout(changeText, 3000); // Change every 3 seconds
 }
 
-// Start the typing effect
+// Start the effect
 document.addEventListener('DOMContentLoaded', () => {
-    setTimeout(typeEffect, 1000); // Start after 1 second
+    rotatingText.textContent = titles[0];
+    rotatingText.style.transition = 'all 0.5s ease';
+    setTimeout(changeText, 3000);
 });
-
-// Add cursor blink animation
-const styless = document.createElement('style');
-styless.textContent = `
-    @keyframes blinkCursor {
-        0%, 100% { border-color: #6c5ce7; }
-        50% { border-color: transparent; }
-    }
-`;
-document.head.appendChild(styless);
     </script>
 </body>
 
