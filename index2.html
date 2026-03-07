@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
@@ -7,9 +8,10 @@
     <!-- Font Awesome 6 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
     <!-- AOS Animation Library -->
-    <link rel="shortcut icon" href="images/pappu.jpg" type="image/x-icon" >
+    <link rel="shortcut icon" href="images/pappu.jpg" type="image/x-icon">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style>
         * {
@@ -204,7 +206,7 @@
             right: 0;
             bottom: 0;
             background: radial-gradient(circle at 20% 50%, rgba(108, 92, 231, 0.15) 0%, transparent 50%),
-                        radial-gradient(circle at 80% 80%, rgba(164, 99, 245, 0.15) 0%, transparent 50%);
+                radial-gradient(circle at 80% 80%, rgba(164, 99, 245, 0.15) 0%, transparent 50%);
             pointer-events: none;
         }
 
@@ -228,8 +230,15 @@
         }
 
         @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
         }
 
         .hero h1 {
@@ -248,8 +257,15 @@
         }
 
         @keyframes gradient {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
+
+            0%,
+            100% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
         }
 
         .hero h1 span {
@@ -648,9 +664,19 @@
         }
 
         @keyframes float {
-            0%, 100% { transform: translate(0, 0) rotate(0deg); }
-            33% { transform: translate(30px, 30px) rotate(120deg); }
-            66% { transform: translate(-20px, 20px) rotate(240deg); }
+
+            0%,
+            100% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+
+            33% {
+                transform: translate(30px, 30px) rotate(120deg);
+            }
+
+            66% {
+                transform: translate(-20px, 20px) rotate(240deg);
+            }
         }
 
         /* Loading Animation */
@@ -678,7 +704,9 @@
         }
 
         @keyframes spin {
-            to { transform: rotate(360deg); }
+            to {
+                transform: rotate(360deg);
+            }
         }
 
         /* Responsive Typography */
@@ -709,6 +737,7 @@
         }
     </style>
 </head>
+
 <body>
     <!-- Loading Animation -->
     <div class="loading" id="loading">
@@ -732,7 +761,8 @@
             <a href="#experience">Experience</a>
             <a href="#projects">Projects</a>
             <a href="#contact">Contact</a>
-            <a href="./images/Pk-PappuKushwahaResume.pdf" target="_blank" class="nav-resume-btn">Download CV <i class="fas fa-download" style="margin-left: 0.5rem;"></i></a>
+            <a href="./images/Pk-PappuKushwahaResume.pdf" target="_blank" class="nav-resume-btn">Download CV <i
+                    class="fas fa-download" style="margin-left: 0.5rem;"></i></a>
         </div>
     </nav>
 
@@ -746,8 +776,9 @@
                         <span class="gradient-text">Pappu Kushwaha</span>
                         <span>Backend Developer</span>
                     </h1>
-                    <p>Specialized in building scalable backend systems, high-performance APIs, and real-time applications with 3+ years of experience.</p>
-                    
+                    <p>Specialized in building scalable backend systems, high-performance APIs, and real-time
+                        applications with 3+ years of experience.</p>
+
                     <div class="hero-stats">
                         <div class="stat-item" data-aos="zoom-in" data-aos-delay="100">
                             <div class="stat-number">250+</div>
@@ -779,14 +810,16 @@
         <section id="about" class="section">
             <div class="container">
                 <h2 class="section-title" data-aos="fade-up">About Me</h2>
-                
+
                 <div class="about-grid">
                     <div class="about-card" data-aos="fade-right">
                         <div class="about-icon">
                             <i class="fas fa-user"></i>
                         </div>
                         <h3 style="margin-bottom: 1rem;">Who I Am</h3>
-                        <p style="color: #b0b0b0;">Full Stack Web Developer with 3+ years of hands-on experience in designing, developing, and maintaining dynamic web applications. Proficient in Laravel, Node.js, and modern web technologies.</p>
+                        <p style="color: #b0b0b0;">Full Stack Web Developer with 3+ years of hands-on experience in
+                            designing, developing, and maintaining dynamic web applications. Proficient in Laravel,
+                            Node.js, and modern web technologies.</p>
                     </div>
 
                     <div class="about-card" data-aos="fade-up">
@@ -794,7 +827,9 @@
                             <i class="fas fa-code"></i>
                         </div>
                         <h3 style="margin-bottom: 1rem;">What I Do</h3>
-                        <p style="color: #b0b0b0;">Specialized in API development, server-side logic, and real-time systems. Transitioned from frontend to backend architecture for AI and crypto-based platforms.</p>
+                        <p style="color: #b0b0b0;">Specialized in API development, server-side logic, and real-time
+                            systems. Transitioned from frontend to backend architecture for AI and crypto-based
+                            platforms.</p>
                     </div>
 
                     <div class="about-card" data-aos="fade-left">
@@ -816,7 +851,7 @@
         <section id="skills" class="section">
             <div class="container">
                 <h2 class="section-title" data-aos="fade-up">Technical Skills</h2>
-                
+
                 <div class="skills-grid" id="skills-grid">
                     <!-- Skills will be populated by JavaScript -->
                 </div>
@@ -827,7 +862,7 @@
         <section id="experience" class="section">
             <div class="container">
                 <h2 class="section-title" data-aos="fade-up">Work Experience</h2>
-                
+
                 <div class="timeline">
                     <!-- Bingo Singapore -->
                     <div class="timeline-item" data-aos="fade-left">
@@ -835,9 +870,12 @@
                         <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Back End Developer</h3>
                         <p style="color: #a463f5; margin-bottom: 1rem;">Bingo Singapore Pte. Ltd. - Noida</p>
                         <ul style="color: #b0b0b0; margin-left: 1.5rem;">
-                            <li style="margin-bottom: 0.5rem;">Developed scalable backend systems for aiiongold.com, aiiongold.org, etdo.org</li>
-                            <li style="margin-bottom: 0.5rem;">Migrated Laravel backend to Node.js, improving performance</li>
-                            <li style="margin-bottom: 0.5rem;">Built APIs, KYC module, referral system with Redis and WebSockets</li>
+                            <li style="margin-bottom: 0.5rem;">Developed scalable backend systems for aiiongold.com,
+                                aiiongold.org, etdo.org</li>
+                            <li style="margin-bottom: 0.5rem;">Migrated Laravel backend to Node.js, improving
+                                performance</li>
+                            <li style="margin-bottom: 0.5rem;">Built APIs, KYC module, referral system with Redis and
+                                WebSockets</li>
                         </ul>
                     </div>
 
@@ -847,9 +885,11 @@
                         <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Web Developer (WordPress)</h3>
                         <p style="color: #a463f5; margin-bottom: 1rem;">Mind Mingles - Mayur Vihar</p>
                         <ul style="color: #b0b0b0; margin-left: 1.5rem;">
-                            <li style="margin-bottom: 0.5rem;">Maintained and developed 400+ dynamic WordPress websites</li>
+                            <li style="margin-bottom: 0.5rem;">Maintained and developed 400+ dynamic WordPress websites
+                            </li>
                             <li style="margin-bottom: 0.5rem;">Customized themes and optimized site speed</li>
-                            <li style="margin-bottom: 0.5rem;">Implemented client requirements with responsive design</li>
+                            <li style="margin-bottom: 0.5rem;">Implemented client requirements with responsive design
+                            </li>
                         </ul>
                     </div>
 
@@ -872,7 +912,7 @@
         <section id="projects" class="section">
             <div class="container">
                 <h2 class="section-title" data-aos="fade-up">Featured Projects</h2>
-                
+
                 <div class="projects-grid" id="projects-grid">
                     <!-- Projects will be populated by JavaScript -->
                 </div>
@@ -883,11 +923,11 @@
         <section id="contact" class="section">
             <div class="container">
                 <h2 class="section-title" data-aos="fade-up">Let's Work Together</h2>
-                
+
                 <div class="contact-grid">
                     <div class="contact-card" data-aos="fade-right">
                         <h3 style="margin-bottom: 2rem;">Contact Information</h3>
-                        
+
                         <div class="contact-item">
                             <div class="contact-icon">
                                 <i class="fas fa-phone-alt"></i>
@@ -897,7 +937,7 @@
                                 <div style="font-weight: 600;">+91 9137640812</div>
                             </div>
                         </div>
-                        
+
                         <div class="contact-item">
                             <div class="contact-icon">
                                 <i class="fas fa-envelope"></i>
@@ -907,7 +947,7 @@
                                 <div style="font-weight: 600;">kushwahapappu730@gmail.com</div>
                             </div>
                         </div>
-                        
+
                         <div class="contact-item">
                             <div class="contact-icon">
                                 <i class="fas fa-map-marker-alt"></i>
@@ -919,13 +959,18 @@
                         </div>
 
                         <div style="display: flex; gap: 1rem; margin-top: 2rem;">
-                            <a href="https://www.linkedin.com/in/pappu-kushwaha-78897223a/" class="social-link" style="width: 45px; height: 45px; background: rgba(108, 92, 231, 0.2); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; transition: all 0.3s ease;" target="_blank">
+                            <a href="https://www.linkedin.com/in/pappu-kushwaha-78897223a/" class="social-link"
+                                style="width: 45px; height: 45px; background: rgba(108, 92, 231, 0.2); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; transition: all 0.3s ease;"
+                                target="_blank">
                                 <i class="fab fa-linkedin-in"></i>
                             </a>
-                            <a href="https://pappukush.netlify.app/" class="social-link" style="width: 45px; height: 45px; background: rgba(108, 92, 231, 0.2); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; transition: all 0.3s ease;" target="_blank">
+                            <a href="https://pappukush.netlify.app/" class="social-link"
+                                style="width: 45px; height: 45px; background: rgba(108, 92, 231, 0.2); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; transition: all 0.3s ease;"
+                                target="_blank">
                                 <i class="fas fa-globe"></i>
                             </a>
-                            <a href="#" class="social-link" style="width: 45px; height: 45px; background: rgba(108, 92, 231, 0.2); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; transition: all 0.3s ease;">
+                            <a href="#" class="social-link"
+                                style="width: 45px; height: 45px; background: rgba(108, 92, 231, 0.2); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; transition: all 0.3s ease;">
                                 <i class="fab fa-github"></i>
                             </a>
                         </div>
@@ -933,20 +978,37 @@
 
                     <div class="contact-card" data-aos="fade-left">
                         <h3 style="margin-bottom: 2rem;">Send Message</h3>
+
+                        <!-- YAHAN PE FORM MEIN YE CHANGES KARO -->
                         <form id="contact-form" action="https://formsubmit.co/kushwahapappu730@gmail.com" method="POST">
+                            <!-- Ye hidden fields add karo -->
+                            <input type="hidden" name="_subject" value="New message from Portfolio Website!">
+                            <input type="hidden" name="_captcha" value="false">
+                            <input type="hidden" name="_template" value="table">
+                            <input type="hidden" name="_next"
+                                value="https://stellular-cajeta-c0017c.netlify.app/thanks.html">
+
+                            <!-- Form fields ke 'name' attribute add karo -->
                             <div class="form-group">
-                                <input type="text" class="form-input" placeholder="Your Name" required>
+                                <input type="text" name="name" class="form-input" placeholder="Your Name" required>
                             </div>
                             <div class="form-group">
-                                <input type="email" class="form-input" placeholder="Your Email" required>
+                                <input type="email" name="email" class="form-input" placeholder="Your Email" required>
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-input" placeholder="Subject">
+                                <input type="text" name="subject" class="form-input" placeholder="Subject">
                             </div>
                             <div class="form-group">
-                                <textarea class="form-input" placeholder="Your Message" rows="5" required></textarea>
+                                <textarea name="message" class="form-input" placeholder="Your Message" rows="5"
+                                    required></textarea>
                             </div>
-                            <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message <i class="fas fa-paper-plane" style="margin-left: 0.5rem;"></i></button>
+
+                            <!-- Honeypot spam prevention -->
+                            <input type="text" name="_honey" style="display:none">
+
+                            <button type="submit" class="btn btn-primary" style="width: 100%;">
+                                Send Message <i class="fas fa-paper-plane" style="margin-left: 0.5rem;"></i>
+                            </button>
                         </form>
                     </div>
                 </div>
@@ -971,7 +1033,7 @@
         });
 
         // Hide loading screen
-        window.addEventListener('load', function() {
+        window.addEventListener('load', function () {
             document.getElementById('loading').style.opacity = '0';
             setTimeout(() => {
                 document.getElementById('loading').style.display = 'none';
@@ -982,7 +1044,7 @@
         const menuBtn = document.getElementById('menuBtn');
         const navLinks = document.getElementById('navLinks');
 
-        menuBtn.addEventListener('click', function() {
+        menuBtn.addEventListener('click', function () {
             navLinks.classList.toggle('active');
             const icon = menuBtn.querySelector('i');
             if (navLinks.classList.contains('active')) {
@@ -1098,12 +1160,109 @@
         populateProjects();
 
         // Form Submission
-        document.getElementById('contact-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            submitForm(this);
-            alert('Thank you for your message! I will respond within 24 hours.');
-            this.reset();
+        // Contact Form Handling with FormSubmit.co
+        document.getElementById('contact-form').addEventListener('submit', function (e) {
+            e.preventDefault(); // Form ko default submit hone se roko
+
+            const form = this;
+            const submitBtn = form.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+
+            // Show loading state
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+            submitBtn.disabled = true;
+
+            // Form data ko collect karo
+            const formData = new FormData(form);
+
+            // AJAX se form submit karo
+            fetch(form.action, {
+                method: 'POST',
+                body: formData
+            })
+                .then(response => {
+                    if (response.ok) {
+                        // Success message show karo
+                        showNotification('Message sent successfully! I will respond within 24 hours.', 'success');
+                        form.reset(); // Form clear karo
+                    } else {
+                        showNotification('Something went wrong. Please try again.', 'error');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    showNotification('Network error. Please check your connection.', 'error');
+                })
+                .finally(() => {
+                    // Button ko wapas normal karo
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                });
         });
+
+        // Notification function (ye bhi add karo)
+        function showNotification(message, type) {
+            // Pehle se koi notification hai to hatado
+            const existingNotification = document.querySelector('.notification');
+            if (existingNotification) {
+                existingNotification.remove();
+            }
+
+            // Create notification element
+            const notification = document.createElement('div');
+            notification.className = `notification ${type}`;
+            notification.innerHTML = `
+        <div style="display: flex; align-items: center; gap: 1rem;">
+            <i class="fas ${type === 'success' ? 'fa-check-circle' : 'fa-exclamation-circle'}" style="font-size: 1.5rem;"></i>
+            <span>${message}</span>
+            <button onclick="this.parentElement.parentElement.remove()" style="background: none; border: none; color: white; margin-left: 1rem; cursor: pointer; font-size: 1.2rem;">&times;</button>
+        </div>
+    `;
+
+            // Style notification
+            notification.style.cssText = `
+        position: fixed;
+        top: 80px;
+        right: 20px;
+        background: ${type === 'success' ? 'linear-gradient(135deg, #00b09b, #96c93d)' : 'linear-gradient(135deg, #ff6b6b, #ee5253)'};
+        color: white;
+        padding: 1rem 2rem;
+        border-radius: 10px;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        z-index: 9999;
+        animation: slideIn 0.3s ease;
+        font-size: 0.95rem;
+    `;
+
+            document.body.appendChild(notification);
+
+            // Auto remove after 5 seconds
+            setTimeout(() => {
+                if (notification.parentNode) {
+                    notification.style.animation = 'slideOut 0.3s ease';
+                    setTimeout(() => {
+                        if (notification.parentNode) {
+                            notification.remove();
+                        }
+                    }, 300);
+                }
+            }, 5000);
+        }
+
+        // CSS animations add karo (agar pehle se nahi hai to)
+        const style = document.createElement('style');
+        style.textContent = `
+    @keyframes slideIn {
+        from { transform: translateX(100%); opacity: 0; }
+        to { transform: translateX(0); opacity: 1; }
+    }
+    
+    @keyframes slideOut {
+        from { transform: translateX(0); opacity: 1; }
+        to { transform: translateX(100%); opacity: 0; }
+    }
+`;
+        document.head.appendChild(style);
 
         // Smooth Scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -1120,7 +1279,7 @@
         });
 
         // Navbar background change on scroll
-        window.addEventListener('scroll', function() {
+        window.addEventListener('scroll', function () {
             const nav = document.querySelector('nav');
             if (window.scrollY > 50) {
                 nav.style.background = 'rgba(15, 15, 26, 0.98)';
@@ -1154,4 +1313,5 @@
         });
     </script>
 </body>
+
 </html>
