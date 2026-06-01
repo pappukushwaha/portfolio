@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>14 दिसंबर 2021... 💕 मेरी जिंदगी का सबसे खूबसूरत दिन</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #ff0844, #ff6b6b, #ffb199, #ff0844);
+            background-size: 400% 400%;
+            animation: gradientBG 10s ease infinite;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .card {
+            max-width: 550px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.97);
+            backdrop-filter: blur(10px);
+            border-radius: 50px 50px 30px 30px;
+            box-shadow: 0 30px 70px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            position: relative;
+            border: 3px solid rgba(255, 255, 255, 0.5);
+        }
+        
+        .card::before {
+            content: "💕";
+            position: absolute;
+            font-size: 150px;
+            opacity: 0.03;
+            right: -20px;
+            bottom: -20px;
+            transform: rotate(20deg);
+        }
+        
+        .header-glow {
+            background: linear-gradient(45deg, #ff0844, #ff6b6b);
+            padding: 30px 20px 50px;
+            text-align: center;
+            color: white;
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+            position: relative;
+        }
+        
+        .header-glow::after {
+            content: "14 दिसंबर 2021";
+            position: absolute;
+            bottom: 20px;
+            left: 0;
+            right: 0;
+            font-size: 1.2em;
+            font-weight: 300;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .big-heart {
+            font-size: 80px;
+            animation: bigHeartBeat 1.5s ease-in-out infinite;
+            display: inline-block;
+            filter: drop-shadow(0 0 20px rgba(255,255,255,0.7));
+            margin-bottom: 15px;
+        }
+        
+        @keyframes bigHeartBeat {
+            0%, 100% { transform: scale(1); }
+            25% { transform: scale(1.1); }
+            30% { transform: scale(1); }
+            35% { transform: scale(1.2); }
+        }
+        
+        .header-glow h1 {
+            font-size: 2.5em;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+        }
+        
+        .header-glow p {
+            font-size: 1.2em;
+            opacity: 0.95;
+            font-family: 'Great Vibes', cursive;
+            font-size: 2em;
+        }
+        
+        .photo-frame {
+            text-align: center;
+            margin-top: -50px;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .photo-container {
+            display: inline-block;
+            padding: 8px;
+            background: white;
+            border-radius: 30px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            position: relative;
+        }
+        
+        .photo-container::before {
+            content: "❤️";
+            position: absolute;
+            top: -15px;
+            right: -15px;
+            font-size: 40px;
+            background: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 15px rgba(255,71,87,0.4);
+            animation: rotate 3s linear infinite;
+        }
+        
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .photo {
+            width: 200px;
+            height: 200px;
+            border-radius: 25px;
+            background: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 100px;
+            color: #ff6b6b;
+            border: 3px solid #fff;
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+        
+        .photo:hover {
+            transform: scale(1.02);
+        }
+        
+        .content {
+            padding: 30px 25px 40px;
+        }
+        
+        .special-date {
+            background: linear-gradient(135deg, #fff0f0, #ffe5e5);
+            padding: 30px 20px;
+            border-radius: 30px;
+            margin: 20px 0;
+            text-align: center;
+            border: 2px dashed #ff6b6b;
+        }
+        
+        .date-number {
+            font-size: 4em;
+            font-weight: 700;
+            color: #ff0844;
+            line-height: 1;
+            margin-bottom: 10px;
+            text-shadow: 3px 3px 0 rgba(255,8,68,0.1);
+        }
+        
+        .date-text {
+            font-size: 1.3em;
+            color: #444;
+            margin-bottom: 20px;
+        }
+        
+        .counter-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .counter-item-special {
+            background: white;
+            padding: 20px 10px;
+            border-radius: 20px;
+            box-shadow: 0 5px 15px rgba(255,8,68,0.15);
+        }
+        
+        .counter-number-special {
+            font-size: 2.5em;
+            font-weight: 700;
+            color: #ff0844;
+            line-height: 1;
+        }
+        
+        .counter-label-special {
+            font-size: 0.9em;
+            color: #666;
+        }
+        
+        .memory-lane {
+            margin: 30px 0;
+        }
+        
+        .memory-title {
+            font-size: 1.5em;
+            color: #ff0844;
+            margin-bottom: 20px;
+            text-align: center;
+            font-weight: 600;
+        }
+        
+        .memory-bubble {
+            background: #fff5f5;
+            padding: 15px 20px;
+            border-radius: 20px;
+            margin-bottom: 10px;
+            border-left: 5px solid #ff0844;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .memory-bubble:hover {
+            transform: translateX(10px);
+            background: #ffe0e0;
+        }
+        
+        .memory-bubble span {
+            color: #ff0844;
+            margin-right: 10px;
+            font-size: 1.3em;
+        }
+        
+        .btn-container {
+            text-align: center;
+            margin: 30px 0;
+        }
+        
+        .special-btn {
+            background: linear-gradient(45deg, #ff0844, #ff6b6b);
+            color: white;
+            border: none;
+            padding: 18px 40px;
+            font-size: 1.4em;
+            border-radius: 60px;
+            cursor: pointer;
+            font-weight: 600;
+            letter-spacing: 1px;
+            box-shadow: 0 10px 25px rgba(255,8,68,0.4);
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+        }
+        
+        .special-btn:hover {
+            transform: scale(1.02);
+            box-shadow: 0 15px 35px rgba(255,8,68,0.5);
+        }
+        
+        .special-btn::before {
+            content: "❤️";
+            position: absolute;
+            left: -30px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 20px;
+            transition: all 0.3s;
+        }
+        
+        .special-btn:hover::before {
+            left: 20px;
+        }
+        
+        .love-meter {
+            background: #fafafa;
+            border-radius: 20px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .meter-bar {
+            height: 30px;
+            background: #ffe0e0;
+            border-radius: 30px;
+            overflow: hidden;
+            margin: 10px 0;
+        }
+        
+        .meter-fill {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, #ff0844, #ff6b6b);
+            border-radius: 30px;
+            animation: fillMeter 2s ease-out forwards;
+        }
+        
+        @keyframes fillMeter {
+            to { width: 100%; }
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            backdrop-filter: blur(5px);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .modal.show {
+            display: flex;
+        }
+        
+        .modal-content {
+            background: white;
+            max-width: 450px;
+            width: 100%;
+            border-radius: 40px;
+            padding: 30px;
+            text-align: center;
+            position: relative;
+            animation: modalPop 0.5s;
+            border: 5px solid #ff6b6b;
+        }
+        
+        @keyframes modalPop {
+            0% { transform: scale(0); }
+            80% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        
+        .modal-heart {
+            font-size: 70px;
+            animation: heartbeat 1s infinite;
+            margin-bottom: 20px;
+        }
+        
+        .modal-date {
+            font-size: 2.5em;
+            color: #ff0844;
+            font-weight: 700;
+            margin: 15px 0;
+        }
+        
+        .modal-text {
+            font-size: 1.3em;
+            color: #444;
+            margin: 20px 0;
+            line-height: 1.6;
+        }
+        
+        .modal-signature {
+            font-family: 'Great Vibes', cursive;
+            font-size: 2em;
+            color: #ff0844;
+            margin: 20px 0;
+        }
+        
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 2em;
+            cursor: pointer;
+            color: #ff6b6b;
+            background: #ffe0e0;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .close-btn:hover {
+            background: #ff0844;
+            color: white;
+        }
+        
+        .floating-hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 999;
+        }
+        
+        @media (max-width: 480px) {
+            .header-glow h1 {
+                font-size: 1.8em;
+            }
+            
+            .date-number {
+                font-size: 3em;
+            }
+            
+            .counter-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-hearts" id="floatingHearts"></div>
+    
+    <div class="card">
+        <div class="header-glow">
+            <div class="big-heart">💖</div>
+            <h1>हमारी प्यारी कहानी</h1>
+            <p>14 दिसंबर 2021</p>
+        </div>
+        
+        <div class="photo-frame">
+            <div class="photo-container">
+                <div class="photo" id="photoPlaceholders">
+                    <img src="./images/pappu.jpg" alt="Pappu Kushwaha" style="width: 100%; height: 100%; border-radius: 25px; object-fit: cover;">
+                </div>
+            </div>
+        </div>
+        
+        <div class="content">
+            <div class="special-date">
+                <div class="date-number" id="totalDays">0</div>
+                <div class="date-text">दिन पहले मिले थे हम</div>
+                <p style="color: #ff6b6b; font-size: 1.1em;">14 दिसंबर 2021 से लगातार प्यार 💕</p>
+                
+                <div class="counter-grid">
+                    <div class="counter-item-special">
+                        <div class="counter-number-special" id="years">0</div>
+                        <div class="counter-label-special">साल</div>
+                    </div>
+                    <div class="counter-item-special">
+                        <div class="counter-number-special" id="months">0</div>
+                        <div class="counter-label-special">महीने</div>
+                    </div>
+                    <div class="counter-item-special">
+                        <div class="counter-number-special" id="days">0</div>
+                        <div class="counter-label-special">दिन</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="memory-lane">
+                <div class="memory-title">💗 यादें तुम्हारी 💗</div>
+                
+                <div class="memory-bubble" onclick="showMemory(1)">
+                    <span>📅</span> वो पहली मुलाकात - 14 दिसंबर 2021
+                </div>
+                <div class="memory-bubble" onclick="showMemory(2)">
+                    <span>💕</span> पहली बार हाथ थामा था
+                </div>
+                <div class="memory-bubble" onclick="showMemory(3)">
+                    <span>🌹</span> पहला गुलाब दिया था
+                </div>
+                <div class="memory-bubble" onclick="showMemory(4)">
+                    <span>✨</span> तुमने हाँ कही थी
+                </div>
+            </div>
+            
+            <div class="love-meter">
+                <div style="font-size: 1.2em; color: #ff0844; text-align: center; margin-bottom: 10px;">
+                    ❤️ तुमसे कितना प्यार करता हूं? ❤️
+                </div>
+                <div class="meter-bar">
+                    <div class="meter-fill"></div>
+                </div>
+                <div style="text-align: center; margin-top: 10px; color: #ff6b6b; font-weight: 600;">
+                    दिल से ज्यादा ❤️ असीमित
+                </div>
+            </div>
+            
+            <div class="btn-container">
+                <button class="special-btn" onclick="showSpecialPopup()">
+                    14 दिसंबर 2021 💕 क्लिक करो
+                </button>
+            </div>
+            
+            <div style="text-align: center; margin: 20px 0;">
+                <p style="font-size: 1.2em; color: #444;">तुम हो तो दिल है ❤️</p>
+                <p style="font-size: 1em; color: #888; margin-top: 10px;">तुम्हारे बिना ये दिल भी नहीं</p>
+            </div>
+            
+            <div style="text-align: right; margin-top: 30px;">
+                <p style="font-size: 1.5em; color: #ff0844; font-family: 'Great Vibes', cursive;">
+                    तुम्हारा हमसफर
+                </p>
+                <p style="font-size: 1.2em; color: #666;">पप्पू कुशवाहा ❤️</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Custom Popup Modal -->
+    <div class="modal" id="specialModal">
+        <div class="modal-content">
+            <div class="close-btn" onclick="closeModal()">×</div>
+            <div class="modal-heart">💕</div>
+            <h2 style="color: #ff0844;">14 दिसंबर 2021</h2>
+            <div class="modal-date" id="modalYears">❤️</div>
+            <div class="modal-text" id="modalMessage">
+                तुमसे मिलकर मेरी जिंदगी बदल गई<br>
+                14 दिसंबर 2021 को मिली थी मुझे मेरी जिंदगी
+            </div>
+            <div style="font-size: 1.3em; color: #ff6b6b; margin: 15px 0;">
+                <span id="modalDays"></span> दिन हो गए प्यार में
+            </div>
+            <div class="modal-signature">
+                हमेशा तुम्हारा
+            </div>
+            <div style="font-size: 3em; margin-top: 10px;">
+                💝
+            </div>
+        </div>
+    </div>
+    
+    <!-- Photo Upload Script -->
+    <div style="display: none;">
+        <input type="file" id="photoUpload" accept="image/*" onchange="uploadPhoto(event)">
+    </div>
+    
+    <script>
+        // 14 December 2021 - The special date
+        const meetingDate = new Date(2021, 11, 14); // Month is 0-indexed, so 11 = December
+        
+        function updateCounter() {
+            const today = new Date();
+            const diff = today - meetingDate;
+            
+            // Total days
+            const totalDays = Math.floor(diff / (1000 * 60 * 60 * 24));
+            document.getElementById('totalDays').textContent = totalDays;
+            
+            // Years, Months, Days
+            let years = today.getFullYear() - meetingDate.getFullYear();
+            let months = today.getMonth() - meetingDate.getMonth();
+            let days = today.getDate() - meetingDate.getDate();
+            
+            if (days < 0) {
+                months--;
+                const lastMonth = new Date(today.getFullYear(), today.getMonth(), 0).getDate();
+                days = lastMonth - meetingDate.getDate() + today.getDate();
+            }
+            
+            if (months < 0) {
+                years--;
+                months += 12;
+            }
+            
+            document.getElementById('years').textContent = years;
+            document.getElementById('months').textContent = months;
+            document.getElementById('days').textContent = days;
+            
+            // Update modal info
+            document.getElementById('modalYears').innerHTML = `${years} साल ${months} महीने ${days} दिन`;
+            document.getElementById('modalDays').textContent = totalDays;
+        }
+        
+        setInterval(updateCounter, 1000);
+        
+        // Show custom popup (HTML/CSS modal instead of JS alert)
+        function showSpecialPopup() {
+            const modal = document.getElementById('specialModal');
+            modal.classList.add('show');
+            
+            // Create floating hearts explosion
+            for (let i = 0; i < 20; i++) {
+                setTimeout(() => {
+                    createHeart();
+                }, i * 100);
+            }
+        }
+        
+        function closeModal() {
+            document.getElementById('specialModal').classList.remove('show');
+        }
+        
+        // Click outside to close
+        window.onclick = function(event) {
+            const modal = document.getElementById('specialModal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+        
+        // Floating hearts
+        function createHeart() {
+            const container = document.getElementById('floatingHearts');
+            const heart = document.createElement('div');
+            heart.style.position = 'absolute';
+            heart.style.color = '#ff0844';
+            heart.style.fontSize = Math.random() * 30 + 10 + 'px';
+            heart.style.left = Math.random() * 100 + '%';
+            heart.style.animation = `floatHeart ${Math.random() * 3 + 2}s linear forwards`;
+            heart.innerHTML = ['❤️', '💕', '💗', '💖', '💘', '💝'][Math.floor(Math.random() * 6)];
+            container.appendChild(heart);
+            
+            const style = document.createElement('style');
+            style.innerHTML = `
+                @keyframes floatHeart {
+                    0% {
+                        transform: translateY(100vh) scale(0);
+                        opacity: 1;
+                    }
+                    100% {
+                        transform: translateY(-100px) scale(1.5);
+                        opacity: 0;
+                    }
+                }
+            `;
+            document.head.appendChild(style);
+            
+            setTimeout(() => {
+                heart.remove();
+            }, 5000);
+        }
+        
+        setInterval(createHeart, 300);
+        
+        // Memory messages
+        function showMemory(num) {
+            const memories = [
+                "14 दिसंबर 2021 - वो दिन जब मेरी जिंदगी बदल गई। तुम्हें देखा तो लगा, यही वो है जिसका इंतजार था। 💕",
+                "पहली बार हाथ थामा तो लगा जैसे पूरी कायना थाम ली हो। तुम्हारा हाथ मेरे हाथ में... स्वर्ग से कम नहीं। 🤝❤️",
+                "वो पहला गुलाब तुम्हें देते हुए मेरे हाथ कांप रहे थे। तुमने मुस्कुराकर लिया तो मेरा दिल थम सा गया। 🌹✨",
+                "जब तुमने 'हाँ' कही थी, उस दिन से हर दिन वैलेंटाइन डे है। तुम्हारी हाँ ने मुझे दुनिया का सबसे खुशनसीब इंसान बना दिया। 💑💕"
+            ];
+            
+            if (num >= 1 && num <= memories.length) {
+                // Show memory in a temporary modal or just alert
+                const modal = document.getElementById('specialModal');
+                document.getElementById('modalMessage').innerHTML = memories[num-1];
+                document.getElementById('modalYears').innerHTML = 'ये पल 💕';
+                modal.classList.add('show');
+            }
+        }
+        
+        // Photo upload functionality
+        function uploadPhoto(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const photoDiv = document.getElementById('photoPlaceholder');
+                    photoDiv.innerHTML = ''; // Clear emoji
+                    photoDiv.style.backgroundImage = `url('${e.target.result}')`;
+                    photoDiv.style.backgroundSize = 'cover';
+                    photoDiv.style.backgroundPosition = 'center';
+                    document.getElementById('photoEmoji').style.display = 'none';
+                }
+                reader.readAsDataURL(file);
+            }
+        }
+        
+        // Instructions for photo upload
+        window.onload = function() {
+            updateCounter();
+            
+            // Click on photo to upload
+            document.getElementById('photoPlaceholder').onclick = function() {
+                document.getElementById('photoUpload').click();
+            };
+            
+            // Add tooltip
+            this.document.getElementById('photoPlaceholder').style.cursor = 'pointer';
+            this.document.getElementById('photoPlaceholder').title = 'अपनी गर्लफ्रेंड की फोटो लगाने के लिए क्लिक करो';
+            
+            // Reset modal message
+            document.getElementById('modalMessage').innerHTML = 'तुमसे मिलकर मेरी जिंदगी बदल गई<br>14 दिसंबर 2021 को मिली थी मुझे मेरी जिंदगी';
+            document.getElementById('modalYears').innerHTML = '❤️';
+        };
+    </script>
+    
+    
+</body>
+</html>

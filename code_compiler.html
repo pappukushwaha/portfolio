@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Online Compiler - Working Editor</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background: #0f172a;
+      color: white;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .navbar {
+      height: 60px;
+      background: #111827;
+      border-bottom: 1px solid #334155;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px;
+    }
+
+    .left-navbar {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .navbar h1 {
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    .navbar h1 b {
+      color: #22c55e;
+      font-weight: 700;
+    }
+
+    select {
+      padding: 8px 15px;
+      border: none;
+      border-radius: 8px;
+      background: #1e293b;
+      color: white;
+      font-size: 14px;
+      outline: none;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    select:hover {
+      background: #334155;
+    }
+
+    .run-btn {
+      background: #22c55e;
+      border: none;
+      padding: 8px 20px;
+      border-radius: 8px;
+      color: white;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .run-btn:hover {
+      background: #16a34a;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(34, 197, 94, 0.3);
+    }
+
+    .container {
+      display: flex;
+      height: calc(100vh - 60px);
+      width: 100%;
+    }
+
+    .editor-section,
+    .output-section {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .editor-section {
+      width: 50%;
+      min-width: 300px;
+    }
+
+    .output-section {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .section-title {
+      background: #1e293b;
+      padding: 12px 20px;
+      border-bottom: 1px solid #334155;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+
+    #editor-container {
+      flex: 1;
+      width: 100%;
+      position: relative;
+      background: #1e1e1e;
+    }
+
+    #output {
+      flex: 1;
+      background: #0a0a0a;
+      color: #22c55e;
+      padding: 15px;
+      overflow: auto;
+      font-family: 'Courier New', 'Fira Code', monospace;
+      font-size: 13px;
+      line-height: 1.5;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+
+    .divider {
+      width: 5px;
+      background: #334155;
+      cursor: col-resize;
+      transition: background 0.2s;
+      position: relative;
+    }
+
+    .divider:hover {
+      background: #22c55e;
+    }
+
+    /* Make sure Monaco editor is focusable */
+    .monaco-editor {
+      outline: none !important;
+    }
+
+    .monaco-editor .view-lines {
+      cursor: text !important;
+    }
+
+    .output-header {
+      color: #94a3b8;
+      font-size: 12px;
+      margin-bottom: 10px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #334155;
+    }
+
+    .error-message {
+      color: #ff6b6b;
+      background: rgba(255, 107, 107, 0.1);
+      padding: 10px;
+      border-radius: 6px;
+      border-left: 3px solid #ff6b6b;
+      margin: 5px 0;
+      font-family: monospace;
+    }
+
+    .success-message {
+      color: #22c55e;
+      background: rgba(34, 197, 94, 0.1);
+      padding: 10px;
+      border-radius: 6px;
+      border-left: 3px solid #22c55e;
+    }
+  </style>
+</head>
+<body>
+
+<div class="navbar">
+  <div class="left-navbar">
+    <h1>Online Compiler Created By <b>Pappu Kushwaha</b></h1>
+    <select id="language">
+      <option value="javascript">JavaScript</option>
+      <option value="html">HTML/CSS</option>
+    </select>
+  </div>
+  <button class="run-btn" onclick="runCode()">
+    ▶ Run Code (Ctrl+Enter)
+  </button>
+</div>
+
+<div class="container">
+  <div class="editor-section" id="leftPanel">
+    <div class="section-title">
+      ✏️ Editor
+    </div>
+    <div id="editor-container"></div>
+  </div>
+
+  <div class="divider" id="divider"></div>
+
+  <div class="output-section" id="rightPanel">
+    <div class="section-title">
+      📤 Output
+    </div>
+    <div id="output">
+      <div class="output-header">▶ Ready to code! Write something and click Run</div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/monaco-editor@0.52.2/min/vs/loader.js"></script>
+
+<script>
+  // Initialize Monaco Editor properly
+  let editor = null;
+  
+  // Configure Monaco loader
+  require.config({
+    paths: {
+      vs: 'https://cdn.jsdelivr.net/npm/monaco-editor@0.52.2/min/vs'
+    }
+  });
+
+  // Wait for DOM to be fully loaded
+  document.addEventListener('DOMContentLoaded', function() {
+    initializeEditor();
+  });
+
+  function initializeEditor() {
+    require(['vs/editor/editor.main'], function() {
+      // Get the container element
+      const container = document.getElementById('editor-container');
+      
+      if (!container) {
+        console.error('Editor container not found');
+        return;
+      }
+      
+      // Clear any existing content
+      container.innerHTML = '';
+      
+      // Create the editor instance with proper configuration
+      editor = monaco.editor.create(container, {
+        value: `// Welcome to the Online Compiler! 🚀
+// You can type anything here - this editor is fully functional
+// Try writing some JavaScript code:
+
+console.log("Hello from Pappu's Compiler!");
+
+// Create a function
+function calculateSum(a, b) {
+  return a + b;
+}
+
+// Call the function
+const result = calculateSum(10, 20);
+console.log("Sum of 10 and 20 is:", result);
+
+// Try editing this code and click the Run button!
+// You can also use Ctrl+Enter as a shortcut
+`,
+        language: 'javascript',
+        theme: 'vs-dark',
+        automaticLayout: true,
+        fontSize: 14,
+        fontFamily: 'Consolas, "Courier New", monospace',
+        minimap: {
+          enabled: false
+        },
+        scrollBeyondLastLine: false,
+        wordWrap: 'on',
+        lineNumbers: 'on',
+        renderWhitespace: 'selection',
+        cursorBlinking: 'smooth',
+        cursorSmoothCaretAnimation: 'on',
+        formatOnPaste: true,
+        formatOnType: true,
+        acceptSuggestionOnEnter: 'on',
+        suggestOnTriggerCharacters: true,
+        tabCompletion: 'on'
+      });
+      
+      // Focus the editor so user can start typing immediately
+      setTimeout(() => {
+        editor.focus();
+        console.log('Editor focused and ready to type!');
+      }, 100);
+      
+      // Add a small indicator that editor is ready
+      const outputDiv = document.getElementById('output');
+      if (outputDiv && outputDiv.innerHTML.includes('Ready to code')) {
+        // Keep the initial message
+      }
+    });
+  }
+
+  // Function to run the code
+  window.runCode = function() {
+    if (!editor) {
+      document.getElementById('output').innerHTML = '<div class="error-message">⚠️ Editor is still loading. Please wait a moment...</div>';
+      return;
+    }
+    
+    const code = editor.getValue();
+    const language = document.getElementById('language').value;
+    const outputDiv = document.getElementById('output');
+    
+    // Clear previous output but keep some styling
+    outputDiv.innerHTML = '';
+    
+    if (language === 'javascript') {
+      // JavaScript execution with console capture
+      let originalLog = console.log;
+      let originalError = console.error;
+      let originalWarn = console.warn;
+      let outputLines = [];
+      
+      try {
+        // Override console methods
+        console.log = function(...args) {
+          const message = args.map(arg => {
+            if (typeof arg === 'object') {
+              try {
+                return JSON.stringify(arg, null, 2);
+              } catch(e) {
+                return String(arg);
+              }
+            }
+            return String(arg);
+          }).join(' ');
+          outputLines.push(`📢 ${message}`);
+          originalLog.apply(console, args);
+        };
+        
+        console.error = function(...args) {
+          const message = args.map(arg => String(arg)).join(' ');
+          outputLines.push(`❌ ${message}`);
+          originalError.apply(console, args);
+        };
+        
+        console.warn = function(...args) {
+          const message = args.map(arg => String(arg)).join(' ');
+          outputLines.push(`⚠️ ${message}`);
+          originalWarn.apply(console, args);
+        };
+        
+        // Execute the code
+        let result = eval(code);
+        
+        // If there's a return value that's not undefined, show it
+        if (result !== undefined && outputLines.length === 0) {
+          outputLines.push(`↳ Return value: ${typeof result === 'object' ? JSON.stringify(result, null, 2) : result}`);
+        }
+        
+        // Restore console methods
+        console.log = originalLog;
+        console.error = originalError;
+        console.warn = originalWarn;
+        
+        // Display output
+        if (outputLines.length === 0) {
+          outputDiv.innerHTML = '<div class="success-message">✓ Code executed successfully! (No console output)</div>';
+        } else {
+          outputDiv.innerHTML = '<div class="output-header">📋 Console Output:</div>' + 
+            outputLines.map(line => `<div style="margin: 4px 0; font-family: monospace;">${escapeHtml(line)}</div>`).join('');
+        }
+        
+      } catch (error) {
+        // Restore console methods
+        console.log = originalLog;
+        console.error = originalError;
+        console.warn = originalWarn;
+        
+        outputDiv.innerHTML = `<div class="error-message">❌ JavaScript Error: ${escapeHtml(error.message)}</div>`;
+      }
+    } 
+    else if (language === 'html') {
+      // HTML/CSS/JS preview
+      try {
+        const iframe = document.createElement('iframe');
+        iframe.style.width = '100%';
+        iframe.style.height = '100%';
+        iframe.style.border = 'none';
+        iframe.style.backgroundColor = 'white';
+        iframe.sandbox = 'allow-same-origin allow-scripts allow-popups allow-forms allow-modals';
+        
+        outputDiv.innerHTML = '';
+        outputDiv.appendChild(iframe);
+        
+        // Write to iframe
+        const iframeDoc = iframe.contentWindow.document;
+        iframeDoc.open();
+        iframeDoc.write(code);
+        iframeDoc.close();
+        
+      } catch (error) {
+        outputDiv.innerHTML = `<div class="error-message">❌ HTML Error: ${escapeHtml(error.message)}</div>`;
+      }
+    }
+  };
+  
+  // Helper function to escape HTML
+  function escapeHtml(str) {
+    if (!str) return '';
+    return str
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
+  }
+  
+  // Language change handler
+  document.getElementById('language').addEventListener('change', function() {
+    const language = this.value;
+    
+    if (!editor) return;
+    
+    const model = editor.getModel();
+    
+    if (language === 'javascript') {
+      monaco.editor.setModelLanguage(model, 'javascript');
+      
+      // Only change content if it's the default HTML template
+      const currentValue = editor.getValue();
+      if (currentValue.includes('<!DOCTYPE') || currentValue.includes('<html')) {
+        editor.setValue(`// JavaScript Mode Activated
+// Write your JavaScript code below:
+
+console.log("Switched to JavaScript mode!");
+console.log("You can now write and run JavaScript code.");
+
+// Example:
+const message = "Hello from JavaScript!";
+console.log(message);
+`);
+      }
+      editor.focus();
+    } 
+    else if (language === 'html') {
+      monaco.editor.setModelLanguage(model, 'html');
+      
+      // Only change content if it's the default JS template
+      const currentValue = editor.getValue();
+      if (!currentValue.includes('<!DOCTYPE') && !currentValue.includes('<html')) {
+        editor.setValue(`<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Web Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            text-align: center;
+        }
+        h1 {
+            color: #667eea;
+        }
+        button {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background: #764ba2;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>HTML Mode Active!</h1>
+        <p>You can edit this HTML/CSS/JavaScript code.</p>
+        <button onclick="alert('Hello from JavaScript!')">Click Me</button>
+    </div>
+</body>
+</html>`);
+      }
+      editor.focus();
+    }
+  });
+  
+  // Resize functionality
+  const divider = document.getElementById('divider');
+  const leftPanel = document.getElementById('leftPanel');
+  const rightPanel = document.getElementById('rightPanel');
+  let isDragging = false;
+  
+  divider.addEventListener('mousedown', function(e) {
+    isDragging = true;
+    document.body.style.cursor = 'col-resize';
+    document.body.style.userSelect = 'none';
+    e.preventDefault();
+  });
+  
+  document.addEventListener('mousemove', function(e) {
+    if (!isDragging) return;
+    
+    const totalWidth = window.innerWidth;
+    const minWidth = 300;
+    let leftWidth = e.clientX;
+    
+    if (leftWidth < minWidth) leftWidth = minWidth;
+    if (leftWidth > totalWidth - minWidth - divider.offsetWidth) leftWidth = totalWidth - minWidth - divider.offsetWidth;
+    
+    const rightWidth = totalWidth - leftWidth - divider.offsetWidth;
+    
+    leftPanel.style.width = leftWidth + 'px';
+    rightPanel.style.width = rightWidth + 'px';
+    
+    // Force editor to relayout
+    if (editor) {
+      setTimeout(() => editor.layout(), 10);
+    }
+  });
+  
+  document.addEventListener('mouseup', function() {
+    if (isDragging) {
+      isDragging = false;
+      document.body.style.cursor = 'default';
+      document.body.style.userSelect = '';
+      if (editor) editor.layout();
+    }
+  });
+  
+  // Window resize handler
+  window.addEventListener('resize', function() {
+    if (editor) editor.layout();
+  });
+  
+  // Keyboard shortcut: Ctrl+Enter to run code
+  document.addEventListener('keydown', function(e) {
+    if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
+      e.preventDefault();
+      window.runCode();
+    }
+  });
+</script>
+</body>
+</html>
